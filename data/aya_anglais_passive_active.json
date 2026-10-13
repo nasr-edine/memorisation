@@ -1,1 +1,177 @@
-{ "pour": "aya", "matiere": "anglais", "titre": "The passive voice – Pas si passif l'alligator", "items": \( { "id": "voix-active", "type": "definition", "titre": "La voix active", "texte": "À la voix active, le sujet fait l'action.", "exemple": "The cat eats the mouse." ,"mots\_cles": \[ \["voix active", "active voice"\), \("sujet"\), \("fait l'action", "fait l’action"\) ] }, { "id": "voix-passive", "type": "definition", "titre": "La voix passive", "texte": "À la voix passive, le sujet subit l'action.", "exemple": "The mouse is eaten by the cat.", "mots_cles": \( \["voix passive", "passive voice"\), \("sujet"\), \("subit l'action", "subit l’action"\) ] }, { "id": "construction-passive", "type": "regle", "titre": "La construction de la voix passive en anglais", "texte": "La voix passive se construit avec l'auxiliaire BE suivi du participe passé.", "exemple": "The handler was bitten by the alligator.", "mots_cles": \( \["voix passive", "passive voice"\), \("auxiliaire BE", "BE"\), \("participe passé", "past participle"\) ] }, { "id": "passif-titre-presse", "type": "regle", "titre": "La voix passive dans les titres de presse", "texte": "Dans un titre, l'auxiliaire BE peut être absent de la voix passive afin de raccourcir le titre.", "exemple": "Man tackled alligator in a petting zoo.", "mots_cles": \( \["titre"\), \("auxiliaire BE", "BE"\), \("absent", "omis"\), \("voix passive", "passive voice"\), \("raccourcir le titre", "simplification grammaticale"\) ] }, { "id": "active-vers-passive", "type": "regle", "titre": "Transformer une phrase active en phrase passive", "texte": "À la voix passive, le complément d'objet de la phrase active devient le sujet. Le verbe se construit avec BE suivi du participe passé, et le sujet de la phrase active peut être introduit par BY.", "exemple": "An alligator bit its animal trainer. → An animal trainer was bitten by an alligator.", "mots_cles": \( \["complément d'objet", "objet"\), \("sujet"\), \("BE"\), \("participe passé", "past participle"\), \("BY", "by"\) ] }, { "id": "incident-filme", "type": "regle", "titre": "La traduction de « L'incident a été filmé par la femme du passant »", "texte": "The incident was filmed by the bystander's wife.", "mots_cles": \( \["incident", "incident"\), \("was filmed", "filmed"\), \("bystander's wife", "bystanders wife"\) ] }, { "id": "alligator-appele", "type": "regle", "titre": "La traduction de « L'alligator était appelé Darth Vador »", "texte": "The alligator was called Darth Vador.", "mots_cles": \( \["alligator"\), \("was called", "called"\), \("Darth Vador"\) ] }, { "id": "dresseuse-tiree", "type": "regle", "titre": "La traduction de « La dresseuse a été tirée dans l'enclos par l'alligator »", "texte": "The handler was pulled in the enclosure by the alligator.", "mots_cles": \( \["handler"\), \("was pulled", "pulled"\), \("enclosure"\), \("alligator"\) ] }, { "id": "dresseuse-amenee-hopital", "type": "regle", "titre": "La traduction de « La dresseuse a été amenée à l'hôpital par les urgences »", "texte": "The handler was driven to the hospital by the emergency.", "mots_cles": \( \["handler"\), \("was driven", "driven"\), \("hospital"\), \("emergency"\) ] }, { "id": "passant-reconnu", "type": "regle", "titre": "La traduction de « Le passant a été reconnu comme un héros »", "texte": "The bystander was known like a hero.", "mots_cles": \( \["bystander"\), \("was known", "known"\), \("hero"\) ] }, { "id": "verbe-pull", "type": "definition", "titre": "Le verbe « to pull »", "texte": "To pull signifie tirer.", "mots_cles": \( \["to pull", "pull"\), \("tirer"\) ] }, { "id": "verbe-drive", "type": "regle", "titre": "Les formes du verbe « to drive »", "texte": "To drive – drove – driven : conduire.", "mots_cles": \( \["to drive", "drive"\), \("drove"\), \("driven"\), \("conduire"\) ] }, { "id": "verbe-know", "type": "regle", "titre": "Les formes du verbe « to know »", "texte": "To know – knew – known : connaître.", "mots_cles": \( \["to know", "know"\), \("knew"\), \("known"\), \("connaître", "connaitre"\) ] }, { "id": "verbe-acknowledge", "type": "definition", "titre": "Le verbe « to acknowledge »", "texte": "To acknowledge signifie reconnaître.", "mots_cles": \( \["to acknowledge", "acknowledge"\), \("reconnaître", "reconnaitre"\) ] } ], "alertes": \("Le titre de presse « Animal Trainer Saved by Bystander After Alligator Attacks Her During Kids Birthday Party » est incomplet ou ambigu dans le document ; sa formulation exacte n'a pas été transformée en item distinct.", "La phrase « The handler was driven to the hospital by the emergency » est reprise fidèlement du cours, mais la formulation anglaise est inhabituelle.", "La phrase « The bystander was known like a hero » est reprise fidèlement du cours, mais la formulation anglaise est incorrecte ou inhabituelle. « The bystander was acknowledged as a hero » est une formulation plus naturelle.", "Le document ne permet pas de reconstituer avec certitude la question sur l'objectif de la simplification grammaticale dans les titres."\) }
+{
+"pour": "aya",
+"matiere": "anglais",
+"titre": "The passive voice – Pas si passif l'alligator",
+"items": [
+{
+"id": "voix-active",
+"type": "definition",
+"titre": "La voix active",
+"texte": "À la voix active, le sujet fait l'action.",
+"exemple": "The cat eats the mouse.",
+"mots_cles": [
+["voix active", "active voice"],
+["sujet"],
+["fait l'action", "fait l’action"]
+]
+},
+{
+"id": "voix-passive",
+"type": "definition",
+"titre": "La voix passive",
+"texte": "À la voix passive, le sujet subit l'action.",
+"exemple": "The mouse is eaten by the cat.",
+"mots_cles": [
+["voix passive", "passive voice"],
+["sujet"],
+["subit l'action", "subit l’action"]
+]
+},
+{
+"id": "construction-passive",
+"type": "regle",
+"titre": "La construction de la voix passive",
+"texte": "La voix passive se construit avec l'auxiliaire BE suivi du participe passé.",
+"exemple": "The handler was bitten by the alligator.",
+"mots_cles": [
+["voix passive", "passive voice"],
+["auxiliaire BE", "BE"],
+["participe passé", "past participle"]
+]
+},
+{
+"id": "passif-titre-presse",
+"type": "regle",
+"titre": "La voix passive dans les titres de presse",
+"texte": "Dans un titre, l'auxiliaire BE peut être absent de la voix passive afin de raccourcir le titre.",
+"exemple": "Man tackled alligator in a petting zoo.",
+"mots_cles": [
+["titre"],
+["auxiliaire BE", "BE"],
+["absent", "omis"],
+["voix passive", "passive voice"],
+["raccourcir le titre"]
+]
+},
+{
+"id": "active-vers-passive",
+"type": "regle",
+"titre": "Transformer une phrase active en phrase passive",
+"texte": "À la voix passive, le complément d'objet de la phrase active devient le sujet. Le verbe se construit avec BE suivi du participe passé, et le sujet de la phrase active peut être introduit par BY.",
+"exemple": "An alligator bit its animal trainer. → An animal trainer was bitten by an alligator.",
+"mots_cles": [
+["complément d'objet", "objet"],
+["sujet"],
+["BE"],
+["participe passé", "past participle"],
+["BY", "by"]
+]
+},
+{
+"id": "incident-filme",
+"type": "regle",
+"titre": "Traduction : l'incident a été filmé",
+"texte": "The incident was filmed by the bystander's wife.",
+"mots_cles": [
+["incident"],
+["was filmed", "filmed"],
+["bystander's wife"]
+]
+},
+{
+"id": "alligator-appele",
+"type": "regle",
+"titre": "Traduction : l'alligator était appelé Darth Vador",
+"texte": "The alligator was called Darth Vador.",
+"mots_cles": [
+["alligator"],
+["was called", "called"],
+["Darth Vador"]
+]
+},
+{
+"id": "dresseuse-tiree",
+"type": "regle",
+"titre": "Traduction : la dresseuse a été tirée dans l'enclos",
+"texte": "The handler was pulled in the enclosure by the alligator.",
+"mots_cles": [
+["handler"],
+["was pulled", "pulled"],
+["enclosure"],
+["alligator"]
+]
+},
+{
+"id": "dresseuse-hopital",
+"type": "regle",
+"titre": "Traduction : la dresseuse a été amenée à l'hôpital",
+"texte": "The handler was driven to the hospital by the emergency.",
+"mots_cles": [
+["handler"],
+["was driven", "driven"],
+["hospital"],
+["emergency"]
+]
+},
+{
+"id": "passant-heros",
+"type": "regle",
+"titre": "Traduction : le passant a été reconnu comme un héros",
+"texte": "The bystander was known like a hero.",
+"mots_cles": [
+["bystander"],
+["was known", "known"],
+["hero"]
+]
+},
+{
+"id": "verbe-pull",
+"type": "definition",
+"titre": "Le verbe to pull",
+"texte": "To pull signifie tirer.",
+"mots_cles": [
+["to pull", "pull"],
+["tirer"]
+]
+},
+{
+"id": "verbe-drive",
+"type": "regle",
+"titre": "Les formes du verbe to drive",
+"texte": "To drive – drove – driven : conduire.",
+"mots_cles": [
+["to drive", "drive"],
+["drove"],
+["driven"],
+["conduire"]
+]
+},
+{
+"id": "verbe-know",
+"type": "regle",
+"titre": "Les formes du verbe to know",
+"texte": "To know – knew – known : connaître.",
+"mots_cles": [
+["to know", "know"],
+["knew"],
+["known"],
+["connaître", "connaitre"]
+]
+},
+{
+"id": "verbe-acknowledge",
+"type": "definition",
+"titre": "Le verbe to acknowledge",
+"texte": "To acknowledge signifie reconnaître.",
+"mots_cles": [
+["to acknowledge", "acknowledge"],
+["reconnaître", "reconnaitre"]
+]
+}
+],
+"alertes": [
+"La formulation exacte de certains titres de presse est incertaine dans le document source.",
+"The handler was driven to the hospital by the emergency : formulation anglaise inhabituelle.",
+"The bystander was known like a hero : formulation anglaise inhabituelle ; acknowledged as a hero est plus naturel."
+]
+}

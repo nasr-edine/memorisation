@@ -124,17 +124,52 @@ function dueQueue(ls){
 function words(t){let h='',i=0;t.split(/(\s+)/).forEach(p=>{
  if(!p||/^\s+$/.test(p))h+=p;else h+=`<span class="w" data-s="${i}" data-e="${i+p.length}">${esc(p)}</span>`;i+=p.length});return h}
 const hasTTS=()=>typeof speechSynthesis!=='undefined';
-function frVoices(){
- if(!hasTTS())return[];
- const sc=x=>(/natural|neural|online|premium|enhanced|google|siri/i.test(x.name)?2:0)+(x.lang==='fr-FR'?1:0);
- return speechSynthesis.getVoices().filter(x=>/^fr/i.test(x.lang)).sort((a,b)=>sc(b)-sc(a));
+const LANGS={fr:'fr-FR',en:'en-GB',es:'es-ES',de:'de-DE'};
+const LN={fr:'française',en:'anglaise',es:'espagnole',de:'allemande'};
+const SW=Object.fromEntries(Object.entries({
+ fr:'le la les un une des du et est dans pour que qui avec sur pas ce cette sont au aux ne se son ses il elle nous vous ils elles par plus ou mais je tu on mon ma mes ton ta tes leur leurs être avoir fait très aussi donc comme',
+ en:'the an and is are of to in that it for with on as was were be this by from or have has not you he she they we his her their my your what which will would can do does did at but if so about',
+ es:'el los las un una unos unas y es son del que por con para como se su sus al lo más pero muy está están yo tú él ella nosotros ellos este esta eso hay tiene soy eres somos',
+ de:'der die das den dem des ein eine einen und ist sind nicht mit von zu im auf für ich du er sie es wir ihr auch wie aber oder wird sich war haben hat dass nach bei aus'
+}).map(([k,v])=>[k,new Set(v.split(' '))]));
+let curLang='';
+/* Détection : français ou langue de la leçon, phrase par phrase */
+function detect(seg,L,prev){
+ const t=seg.toLowerCase().replace(/’/g,"'"),w=t.split(/[^a-zà-ÿñß']+/).filter(Boolean);let f=0,o=0;
+ for(const x of w){
+  if(SW.fr.has(x))f++;if(SW[L].has(x))o++;
+  if(/^(l|d|j|c|n|s|m|t|qu)'/.test(x))f++;
+  else if(L==='en'&&/('s|n't|'ll|'re|'m|'ve|'d)$/.test(x))o++;
+ }
+ f+=(t.match(L==='es'?/[èêàçùâîôû]/g:/[éèêàçùâîôû]/g)||[]).length*1.5;
+ if(L==='es')o+=(t.match(/[ñáíóú¿¡]/g)||[]).length*2;
+ if(L==='de')o+=(t.match(/[äöüß]/g)||[]).length*2;
+ return o>f?L:f>o?'fr':prev;
 }
-function getVoice(){const l=frVoices(),u=localStorage.getItem('memo:voice');return l.find(x=>x.voiceURI===u)||l[0]||null}
+function chunks(text,L){
+ if(!L||!SW[L])return[{s:0,e:text.length,lang:'fr'}];
+ const out=[],re=/[^.!?;:\n]+[.!?;:]*\s*/g;let m,prev='fr';
+ while((m=re.exec(text))){
+  const lg=detect(m[0],L,prev);prev=lg;const e=m.index+m[0].length,last=out[out.length-1];
+  if(last&&last.lang===lg)last.e=e;else out.push({s:m.index,e,lang:lg});
+ }
+ return out.length?out:[{s:0,e:text.length,lang:'fr'}];
+}
+const recLang=()=>{const c=Q&&Q.q[Q.i];if(!c||!c.l.langue)return'fr';const n={};
+ chunks(c.it.texte,c.l.langue).forEach(x=>n[x.lang]=(n[x.lang]||0)+x.e-x.s);return(n[c.l.langue]||0)>(n.fr||0)?c.l.langue:'fr'};
+/* Voix */
+function voicesFor(lg){
+ if(!hasTTS())return[];
+ const sc=x=>(/natural|neural|online|premium|enhanced|google|siri/i.test(x.name)?2:0)+(x.lang.replace('_','-')===LANGS[lg]?1:0);
+ return speechSynthesis.getVoices().filter(x=>x.lang.toLowerCase().replace('_','-').startsWith(lg)).sort((a,b)=>sc(b)-sc(a));
+}
+function getVoice(lg){const l=voicesFor(lg),u=localStorage.getItem('memo:voice:'+lg)||(lg==='fr'?localStorage.getItem('memo:voice'):null);return l.find(x=>x.voiceURI===u)||l[0]||null}
 const getRate=()=>+localStorage.getItem('memo:rate')||.9;
 function voiceUI(){
- const vs=frVoices(),cur=getVoice(),r=getRate();
- return`<div class="card" id="vui"><label>Voix
-  <select onchange="localStorage.setItem('memo:voice',this.value)">${vs.length?vs.map(v=>`<option value="${esc(v.voiceURI)}" ${cur&&cur.voiceURI===v.voiceURI?'selected':''}>${esc(v.name)}${v.localService?'':' · en ligne'}</option>`).join(''):'<option>Voix par défaut</option>'}</select></label>
+ const r=getRate(),lgs=curLang&&SW[curLang]?['fr',curLang]:['fr'];
+ return`<div class="card" id="vui">${lgs.map(lg=>{const vs=voicesFor(lg),cur=getVoice(lg);
+  return`<label>Voix ${LN[lg]}
+  <select onchange="localStorage.setItem('memo:voice:${lg}',this.value)">${vs.length?vs.map(v=>`<option value="${esc(v.voiceURI)}" ${cur&&cur.voiceURI===v.voiceURI?'selected':''}>${esc(v.name)}${v.localService?'':' · en ligne'}</option>`).join(''):'<option>Voix par défaut</option>'}</select></label>`}).join('')}
   <label>Vitesse : <b id="rv">${r.toFixed(2)}</b> ×
   <input type="range" min="0.5" max="1.3" step="0.05" value="${r}" oninput="localStorage.setItem('memo:rate',this.value);document.getElementById('rv').textContent=(+this.value).toFixed(2)"></label></div>`;
 }
@@ -144,30 +179,31 @@ const clearTm=()=>{tm.forEach(clearTimeout);tm=[]};
 function speak(id){
  const box=document.getElementById(id||'txt');if(!box||!hasTTS())return alert("Lecture vocale indisponible sur ce navigateur.");
  speechSynthesis.cancel();clearTm();const my=++spk;
- const u=new SpeechSynthesisUtterance(box.textContent),v=getVoice();
- if(v){u.voice=v;u.lang=v.lang}else u.lang='fr-FR';
- u.rate=getRate();
- const ws=[...box.querySelectorAll('.w')];
+ const text=box.textContent,ws=[...box.querySelectorAll('.w')],cs=chunks(text,curLang),rate=getRate();
  const clear=()=>{if(my===spk){clearTm();ws.forEach(w=>w.classList.remove('on'))}};
- let gotB=false,started=false;
- // Cas 1 : la voix envoie la position du mot lu (voix locales en général)
- u.onboundary=e=>{if(my!==spk||(e.name&&e.name!=='word'))return;gotB=true;
-  ws.forEach(w=>w.classList.toggle('on',+w.dataset.s<=e.charIndex&&e.charIndex<+w.dataset.e))};
- // Cas 2 : la voix n'envoie rien (voix « en ligne ») : surlignage estimé d'après la vitesse
- const fallback=()=>{if(started||my!==spk)return;started=true;
-  const cps=14*u.rate;let t=0;
-  ws.forEach((w,i)=>{
-   tm.push(setTimeout(()=>{if(!gotB&&my===spk)ws.forEach((x,j)=>x.classList.toggle('on',j===i))},t*1000));
-   t+=(w.textContent.length+1)/cps+(/[.,;:!?]$/.test(w.textContent)?.25/u.rate:0)});
- };
- u.onstart=fallback;tm.push(setTimeout(fallback,600));
- u.onend=clear;u.onerror=clear;speechSynthesis.speak(u);
+ cs.forEach((c,k)=>{
+  const u=new SpeechSynthesisUtterance(text.slice(c.s,c.e)),v=getVoice(c.lang);
+  if(v){u.voice=v;u.lang=v.lang}else u.lang=LANGS[c.lang];
+  u.rate=rate;
+  let gotB=false,st=false;
+  // Voix qui envoie la position du mot lu : surlignage exact
+  u.onboundary=e=>{if(my!==spk||(e.name&&e.name!=='word'))return;gotB=true;const q=c.s+e.charIndex;
+   ws.forEach(w=>w.classList.toggle('on',+w.dataset.s<=q&&q<+w.dataset.e))};
+  // Sinon (voix « en ligne ») : surlignage estimé d'après la vitesse
+  const fb=()=>{if(st||my!==spk)return;st=true;const cps=14*rate;let t=0;
+   ws.filter(w=>+w.dataset.s>=c.s&&+w.dataset.s<c.e).forEach(w=>{
+    tm.push(setTimeout(()=>{if(!gotB&&my===spk)ws.forEach(x=>x.classList.toggle('on',x===w))},t*1000));
+    t+=(w.textContent.length+1)/cps+(/[.,;:!?]$/.test(w.textContent)?.25/rate:0)})};
+  u.onstart=fb;if(k===0)tm.push(setTimeout(fb,600));
+  if(k===cs.length-1)u.onend=clear;
+  u.onerror=clear;speechSynthesis.speak(u);
+ });
 }
 function mic(){
  const SR=window.SpeechRecognition||window.webkitSpeechRecognition,ta=document.getElementById('ans'),b=document.getElementById('mic');
  if(!SR)return alert("Reconnaissance vocale indisponible ici : écris ta réponse (Chrome ou Safari la proposent).");
  if(rec){rec.stop();return}
- rec=new SR();rec.lang='fr-FR';rec.continuous=true;rec.interimResults=true;const base=ta.value?ta.value+' ':'';
+ rec=new SR();rec.lang=LANGS[recLang()]||'fr-FR';rec.continuous=true;rec.interimResults=true;const base=ta.value?ta.value+' ':'';
  rec.onresult=e=>{let s='';for(let i=0;i<e.results.length;i++)s+=e.results[i][0].transcript;ta.value=base+s};
  rec.onend=()=>{rec=null;b.classList.remove('rec');b.textContent='🎤 Parler'};
  rec.start();b.classList.add('rec');b.textContent='⏹ Arrêter';
@@ -198,7 +234,7 @@ function menu(){
   :`<div class="card">Aucune leçon pour ${KIDS.find(k=>k[0]===kid)[1]} pour l'instant.</div>`}`;
 }
 function study(li,i){
- stop();const l=mine()[li],it=l.items[i];
+ stop();const l=mine()[li],it=l.items[i];curLang=SW[l.langue]?l.langue:'';
  app.innerHTML=`<div class="bar"><button class="s" onclick="menu()">← Retour</button><span class="mut">${esc(l.titre)} · ${i+1}/${l.items.length}</span></div>
   <div class="card"><h2>${esc(it.titre)}</h2><div class="txt" id="txt">${words(it.texte)}</div>
   <div class="row"><button onclick="speak('txt')">🔊 Écouter</button><button class="s" onclick="stop()">Stop</button></div></div>

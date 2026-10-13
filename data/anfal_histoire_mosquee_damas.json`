@@ -1,0 +1,86 @@
+{
+  "pour": "anfal",
+  "matiere": "Histoire",
+  "titre": "Dans la mosquée de Damas",
+  "items": [
+    {
+      "id": "sermon-imam",
+      "type": "evenement",
+      "titre": "Le déroulement du sermon de l'imam",
+      "texte": "L'imam monta en chaire. Les lecteurs assis devant lui sur des bancs se mirent à réciter le Coran, faisant entendre des modulations admirables et des inflexions émouvantes. Alors l'imam prit la parole et prononça un sermon empreint de sérénité et de dignité.",
+      "mots_cles": [
+        ["imam"],
+        ["chaire"],
+        ["lecteurs"],
+        ["Coran"],
+        ["modulations"],
+        ["inflexions"],
+        ["sermon"]
+      ]
+    },
+    {
+      "id": "questions-imam",
+      "type": "evenement",
+      "titre": "Les questions adressées à l'imam",
+      "texte": "Ensuite, il fut assailli de partout par une pluie de questions auxquelles il répondit sans rester court et sans hésiter.",
+      "mots_cles": [
+        ["questions"],
+        ["répondit"],
+        ["sans rester court"],
+        ["sans hésiter"]
+      ]
+    },
+    {
+      "id": "coins-mosquee",
+      "type": "definition",
+      "titre": "Les espaces d'étude de la mosquée de Damas",
+      "texte": "La vénérable mosquée de Damas a un certain nombre de 'coins' que les lettrés fréquentent pour copier des livres ou pour enseigner aux étudiants.",
+      "mots_cles": [
+        ["mosquée de Damas"],
+        ["coins"],
+        ["lettrés"],
+        ["copier des livres"],
+        ["enseigner aux étudiants"]
+      ]
+    },
+    {
+      "id": "cour-galeries",
+      "type": "definition",
+      "titre": "La cour de la mosquée de Damas",
+      "texte": "La cour est entourée de galeries sur trois de ses côtés, lieu de rendez-vous, de promenades et de délassement des habitants de la ville.",
+      "mots_cles": [
+        ["cour"],
+        ["galeries"],
+        ["trois"],
+        ["rendez-vous"],
+        ["promenades"],
+        ["délassement"],
+        ["habitants de la ville"]
+      ]
+    },
+    {
+      "id": "vie-quotidienne-cour",
+      "type": "evenement",
+      "titre": "Les activités des habitants dans la cour",
+      "texte": "Chaque soir, on les voit aller et venir. L'un s'entretient avec un ami, l'autre récite le Coran.",
+      "mots_cles": [
+        ["chaque soir"],
+        ["aller et venir"],
+        ["ami"],
+        ["récite le Coran"]
+      ]
+    },
+    {
+      "id": "source-ibn-jubayr",
+      "type": "date",
+      "titre": "L'auteur et l'époque du récit",
+      "texte": "D'après Ibn Jubayr, Voyages, XIIe siècle.",
+      "mots_cles": [
+        ["Ibn Jubayr"],
+        ["Voyages"],
+        ["XIIe siècle", "12e siècle", "douzième siècle"]
+      ]
+    }
+  ],
+  "alertes": []
+}

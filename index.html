@@ -28,6 +28,11 @@ textarea{min-height:120px}
 .meter{height:10px;background:var(--line);border-radius:9px;overflow:hidden}.meter i{display:block;height:100%;background:var(--ok)}
 .tag{font-size:.8em;padding:1px 8px;border-radius:99px;background:#E3E9F3;color:var(--mut)}
 table{width:100%;border-collapse:collapse}td,th{padding:6px 4px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+button.sel{background:var(--ink)}
+.chart{display:flex;align-items:flex-end;gap:3px;height:130px;border-bottom:2px solid var(--line)}
+.col{flex:1;display:flex;flex-direction:column;justify-content:flex-end;height:100%}.col i{display:block;min-height:0}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}.kpis b{display:block;font-size:1.7em}
+.ev{padding:6px 0;border-bottom:1px solid var(--line)}
 @media(prefers-reduced-motion:no-preference){.meter i{transition:width .4s}}
 </style></head><body><main id="app">Chargement…</main>
 <script>
@@ -136,7 +141,8 @@ const stop=()=>{try{speechSynthesis.cancel()}catch(e){}if(rec)rec.stop()};
 
 /* ---------- Écrans ---------- */
 function pickKid(){
- app.innerHTML=`<h1>Qui révise ?</h1><div class="row kids">${KIDS.map(([id,n])=>`<button onclick="setKid('${id}')">${n}</button>`).join('')}</div>`;
+ app.innerHTML=`<h1>Qui révise ?</h1><div class="row kids">${KIDS.map(([id,n])=>`<button onclick="setKid('${id}')">${n}</button>`).join('')}</div>
+  <p><button class="s" onclick="parentOpen()">Espace parent</button></p>`;
 }
 function setKid(id){kid=id;localStorage.setItem('memo:kid',id);load();log('ouverture');menu()}
 function menu(){
@@ -222,6 +228,82 @@ function saveCfg(){
  const iv=document.getElementById('iv').value.split(',').map(x=>parseInt(x,10)).filter(x=>x>=0);
  if(iv.length>=MAITRISE+1)P.cfg.intervals=iv;else return alert('Il faut au moins '+(MAITRISE+1)+' intervalles.');
  P.cfg.seuil=+document.getElementById('se').value||100;P.cfg.session=+document.getElementById('ss').value||10;save();menu();
+}
+
+/* ---------- Espace parent (lecture du journal) ---------- */
+let D={ev:[],kid:'all',days:7};
+const nm=id=>(KIDS.find(k=>k[0]===id)||[0,id])[1];
+const dk=d=>d.toLocaleDateString('sv');
+const fb=(l,a,f)=>`<button class="${a?'sel':'s'}" onclick="${f}">${l}</button>`;
+function parentOpen(){const c=sessionStorage.getItem('memo:pc');c?parentLoad(c):parentLogin()}
+function parentLogin(msg){
+ stop();
+ app.innerHTML=`<div class="bar"><button class="s" onclick="pickKid()">← Retour</button><h2>Espace parent</h2></div>
+ <div class="card">${CFG.log_url?`<label>Code parent<input id="pc" type="password" autocomplete="current-password"></label>
+ ${msg?`<p style="color:var(--ko)">${msg}</p>`:''}
+ <div class="row"><button onclick="parentLoad(document.getElementById('pc').value)">Entrer</button></div>`
+ :"Le journal n'est pas encore configuré (data/config.json)."}</div>`;
+}
+async function parentLoad(code){
+ app.innerHTML='<div class="card">Chargement…</div>';
+ try{
+  const j=await (await fetch(CFG.log_url+'?action=read&code='+encodeURIComponent(code))).json();
+  if(!j.ok){sessionStorage.removeItem('memo:pc');return parentLogin(j.error==='code'?'Code incorrect.':'Erreur : '+j.error)}
+  sessionStorage.setItem('memo:pc',code);
+  D.ev=j.events.map(e=>Object.assign(e,{d:new Date(e.date_heure)})).filter(e=>!isNaN(e.d));dash();
+ }catch(e){parentLogin('Connexion impossible : vérifie le réseau et le déploiement du script.')}
+}
+function dash(){
+ const kids=D.kid==='all'?KIDS.map(k=>k[0]):[D.kid];
+ const all=D.ev.filter(e=>kids.includes(String(e.enfant)));
+ const since=D.days?Date.now()-D.days*864e5:0;
+ const ev=all.filter(e=>e.d>=since),rev=ev.filter(e=>e.evenement==='revision');
+ const okN=rev.filter(e=>+e.reussite===1).length;
+ const jours=new Set(ev.map(e=>dk(e.d))).size;
+ const last=all.length?new Date(Math.max(...all.map(e=>e.d))):null;
+ // activité par jour
+ const n=Math.min(D.days||30,30),cols=[];
+ for(let i=n-1;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);const k=dk(d);
+  const r=all.filter(e=>e.evenement==='revision'&&dk(e.d)===k);
+  cols.push({d,ok:r.filter(e=>+e.reussite===1).length,ko:r.filter(e=>+e.reussite!==1).length})}
+ const mx=Math.max(1,...cols.map(c=>c.ok+c.ko)),fd=d=>d.toLocaleDateString('fr-FR',{day:'2-digit',month:'2-digit'});
+ // maîtrise (tout l'historique)
+ const lastB={},seen=new Set();
+ [...all].sort((a,b)=>a.d-b.d).forEach(e=>{const k=[e.enfant,e.lecon,e.element].join('|');
+  if(e.evenement==='revision'){lastB[k]=+e.boite;seen.add(k)}else if(e.evenement==='appris')seen.add(k)});
+ const prog=kids.map(id=>{
+  const rows=lessons.filter(l=>String(l.pour).toLowerCase()===id).map(l=>{
+   let m=0,c=0,a=0;l.items.forEach(it=>{const k=[id,l.titre,it.titre].join('|');
+    if(lastB[k]>=MAITRISE)m++;else if(seen.has(k))c++;else a++});
+   return`<div><b>${esc(l.titre)}</b> <span class="mut">${m} maîtrisés · ${c} en cours · ${a} à apprendre</span>
+   <div class="meter"><i style="width:${100*m/l.items.length}%"></i></div></div>`}).join('')||'<span class="mut">Aucune leçon.</span>';
+  return`<div class="card"><h3>${nm(id)}</h3>${rows}</div>`}).join('');
+ // éléments à retravailler
+ const w={};rev.forEach(e=>{const k=[e.enfant,e.lecon,e.element].join('|');
+  const o=w[k]||(w[k]={e,n:0,ko:0,m:{}});o.n++;
+  if(+e.reussite!==1){o.ko++;String(e.manquants).split(' | ').filter(Boolean).forEach(x=>o.m[x]=(o.m[x]||0)+1)}});
+ const weak=Object.values(w).filter(o=>o.ko).sort((a,b)=>b.ko-a.ko||b.ko/b.n-a.ko/a.n).slice(0,8);
+ // journal
+ const line=e=>{const t=e.d.toLocaleString('fr-FR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}),who=nm(e.enfant);
+  if(e.evenement==='revision')return`${t} · <b>${who}</b> ${+e.reussite===1?'✅':'❌'} ${esc(e.element)} (${e.pct} %)${e.manquants?` <span class="mut">manque : ${esc(e.manquants)}</span>`:''}`;
+  if(e.evenement==='appris')return`${t} · <b>${who}</b> 📖 a lu « ${esc(e.element)} »`;
+  return`${t} · <b>${who}</b> a ouvert l'app`};
+ const jr=[...ev].sort((a,b)=>b.d-a.d).slice(0,30);
+ app.innerHTML=`<div class="bar"><button class="s" onclick="pickKid()">← Quitter</button><h2>Espace parent</h2>
+  <button class="s" onclick="parentLoad(sessionStorage.getItem('memo:pc'))">Actualiser</button></div>
+  <div class="row">${fb('Tous',D.kid==='all',"D.kid='all';dash()")}${KIDS.map(([id,x])=>fb(x,D.kid===id,`D.kid='${id}';dash()`)).join('')}</div>
+  <div class="row">${[[7,'7 jours'],[30,'30 jours'],[0,'Tout']].map(([d,x])=>fb(x,D.days===d,`D.days=${d};dash()`)).join('')}</div>
+  <div class="card kpis"><div><b>${rev.length}</b>révisions</div>
+   <div><b>${rev.length?Math.round(100*okN/rev.length):0} %</b>de réussite</div>
+   <div><b>${jours}</b>jour${jours>1?'s':''} actif${jours>1?'s':''}</div>
+   <div><b>${last?fd(last):'–'}</b>dernière activité</div></div>
+  <div class="card"><h3>Révisions par jour</h3>
+   <div class="chart">${cols.map(c=>`<div class="col" title="${fd(c.d)} : ${c.ok} réussies, ${c.ko} à revoir"><i style="height:${100*c.ko/mx}%;background:var(--ko)"></i><i style="height:${100*c.ok/mx}%;background:var(--ok)"></i></div>`).join('')}</div>
+   <div class="bar mut"><span>${fd(cols[0].d)}</span><span>vert : réussies · rouge : à revoir</span><span>${fd(cols[cols.length-1].d)}</span></div></div>
+  ${prog}
+  <div class="card"><h3>À retravailler</h3>${weak.length?weak.map(o=>`<div class="ev"><b>${nm(o.e.enfant)}</b> · ${esc(o.e.element)} <span class="tag">${o.ko} échec${o.ko>1?'s':''} / ${o.n}</span>
+   <div class="mut">Souvent oublié : ${Object.entries(o.m).sort((a,b)=>b[1]-a[1]).slice(0,3).map(x=>esc(x[0])).join(', ')||'–'}</div></div>`).join(''):'<span class="mut">Rien à signaler sur cette période.</span>'}</div>
+  <div class="card"><h3>Journal récent</h3>${jr.length?jr.map(e=>`<div class="ev">${line(e)}</div>`).join(''):'<span class="mut">Aucune activité sur cette période.</span>'}</div>`;
 }
 
 /* ---------- Démarrage ---------- */

@@ -2,189 +2,71 @@
   "pour": "aya",
   "matiere": "anglais",
   "langue": "en",
-  "titre": "The passive voice – Pas si passif l'alligator",
+  "titre": "La voix passive en anglais : une première découverte",
   "items": [
     {
       "id": "voix-active",
       "type": "definition",
-      "titre": "La voix active",
-      "texte": "À la voix active, le sujet fait l'action.",
-      "exemple": "The bystander rescues the animal handler.",
+      "titre": "1. La voix active",
+      "texte": "À la voix active, quelqu'un fait une action.",
+      "exemple": "Tom eats the cake. = Tom mange le gâteau.",
       "mots_cles": [
         ["voix active", "active voice"],
-        ["sujet"],
-        ["fait l'action", "does the action"]
+        ["fait une action"]
       ]
     },
     {
       "id": "voix-passive",
       "type": "definition",
-      "titre": "La voix passive",
-      "texte": "À la voix passive, le sujet subit l'action.",
-      "exemple": "The animal handler was rescued by a bystander.",
+      "titre": "2. La voix passive",
+      "texte": "À la voix passive, on parle de ce qui subit l'action.",
+      "exemple": "The cake is eaten. = Le gâteau est mangé.",
       "mots_cles": [
         ["voix passive", "passive voice"],
-        ["sujet", "subject"],
-        ["subit l'action", "receives the action"]
+        ["subit l'action"]
       ]
     },
     {
-      "id": "construction-passive",
+      "id": "reconnaitre-passif",
       "type": "regle",
-      "titre": "La construction de la voix passive en anglais",
-      "texte": "La voix passive se construit avec l'auxiliaire BE suivi du participe passé.",
-      "exemple": "The handler was bitten by the alligator.",
+      "titre": "3. Comment reconnaître le passif ?",
+      "texte": "Au présent, on utilise BE + un verbe au participe passé.",
+      "exemple": "is eaten = est mangé",
       "mots_cles": [
-        ["voix passive", "passive voice"],
-        ["auxiliaire BE", "BE"],
-        ["participe passé", "past participle"]
-      ]
-    },
-    {
-      "id": "passif-titres-presse",
-      "type": "regle",
-      "titre": "La voix passive dans les titres de presse",
-      "texte": "Dans ces titres, l'auxiliaire BE est absent de ces phrases à la voix passive.",
-      "exemple": "Animal Trainer Saved by Bystander After Alligator Attacks Her During Kids Birthday Party",
-      "mots_cles": [
-        ["titres", "headlines"],
-        ["auxiliaire BE", "BE"],
-        ["absent", "omitted"],
-        ["voix passive", "passive voice"]
-      ]
-    },
-    {
-      "id": "objectif-titres",
-      "type": "regle",
-      "titre": "L'objectif de la simplification grammaticale dans les titres",
-      "texte": "Dans un titre, les mots sont comptés. Moins il y a de mots, plus l'attention du lecteur est attirée.",
-      "mots_cles": [
-        ["titre", "headline"],
-        ["mots", "words"],
-        ["attention du lecteur", "reader's attention"],
-        ["attirée", "attracted"]
-      ]
-    },
-    {
-      "id": "transformation-passive",
-      "type": "regle",
-      "titre": "La transformation d'une phrase active en phrase passive",
-      "texte": "À la voix passive, le complément d'objet de la phrase active devient le sujet. Le verbe se construit avec BE suivi du participe passé, et le sujet de la phrase active peut être introduit par BY.",
-      "exemple": "An alligator bit its animal trainer. → A handler was bitten by her alligator.",
-      "mots_cles": [
-        ["complément d'objet", "object"],
-        ["sujet", "subject"],
         ["BE"],
-        ["participe passé", "past participle"],
-        ["BY", "by"]
+        ["participe passé"],
+        ["is eaten"]
       ]
     },
     {
-      "id": "incident-filme",
-      "type": "regle",
-      "titre": "Traduction : l'incident a été filmé par la femme du passant",
-      "texte": "The incident was filmed by the bystander's wife.",
-      "mots_cles": [
-        ["incident"],
-        ["was filmed", "filmed"],
-        ["bystander's wife"]
-      ]
-    },
-    {
-      "id": "alligator-appele",
-      "type": "regle",
-      "titre": "Traduction : l'alligator était appelé Darth Vador",
-      "texte": "The alligator was called Darth Vador.",
-      "mots_cles": [
-        ["alligator"],
-        ["was called", "called"],
-        ["Darth Vador"]
-      ]
-    },
-    {
-      "id": "dresseuse-tiree",
-      "type": "regle",
-      "titre": "Traduction : la dresseuse a été tirée dans l'enclos par l'alligator",
-      "texte": "The handler was pulled in the enclosure by the alligator.",
-      "mots_cles": [
-        ["handler", "animal handler"],
-        ["was pulled", "pulled"],
-        ["enclosure"],
-        ["alligator"]
-      ]
-    },
-    {
-      "id": "dresseuse-hopital",
-      "type": "regle",
-      "titre": "Traduction : la dresseuse a été amenée à l'hôpital par les urgences",
-      "texte": "The handler was driven to the hospital by the emergency.",
-      "mots_cles": [
-        ["handler", "animal handler"],
-        ["was driven", "driven"],
-        ["hospital"],
-        ["emergency"]
-      ]
-    },
-    {
-      "id": "passant-heros",
-      "type": "regle",
-      "titre": "Traduction : le passant a été reconnu comme un héros",
-      "texte": "The bystander was known like a hero.",
-      "mots_cles": [
-        ["bystander"],
-        ["was known", "known"],
-        ["hero"]
-      ]
-    },
-    {
-      "id": "verbe-pull",
+      "id": "verbe-be",
       "type": "definition",
-      "titre": "Le verbe to pull",
-      "texte": "To pull signifie tirer.",
+      "titre": "4. Le verbe BE",
+      "texte": "Au présent, BE peut être AM, IS ou ARE.",
+      "exemple": "The cake is eaten. = Le gâteau est mangé.",
       "mots_cles": [
-        ["to pull", "pull"],
-        ["tirer"]
+        ["BE"],
+        ["am"],
+        ["is"],
+        ["are"]
       ]
     },
     {
-      "id": "verbe-drive",
-      "type": "regle",
-      "titre": "Les formes du verbe to drive",
-      "texte": "To drive – drove – driven : conduire.",
-      "mots_cles": [
-        ["to drive", "drive"],
-        ["drove"],
-        ["driven"],
-        ["conduire"]
-      ]
-    },
-    {
-      "id": "verbe-know",
-      "type": "regle",
-      "titre": "Les formes du verbe to know",
-      "texte": "To know – knew – known : connaître.",
-      "mots_cles": [
-        ["to know", "know"],
-        ["knew"],
-        ["known"],
-        ["connaître", "connaitre"]
-      ]
-    },
-    {
-      "id": "verbe-acknowledge",
+      "id": "mot-by",
       "type": "definition",
-      "titre": "Le verbe to acknowledge",
-      "texte": "To acknowledge signifie reconnaître.",
+      "titre": "5. Le mot BY",
+      "texte": "BY signifie « par ». Il indique qui fait l'action.",
+      "exemple": "The cake is eaten by Tom. = Le gâteau est mangé par Tom.",
       "mots_cles": [
-        ["to acknowledge", "acknowledge"],
-        ["reconnaître", "reconnaitre"]
+        ["BY"],
+        ["par"],
+        ["qui fait l'action"]
       ]
     }
   ],
   "alertes": [
-    "L'objectif de la simplification grammaticale dans les titres a été reconstitué à partir d'un passage partiellement illisible.",
-    "The handler was driven to the hospital by the emergency : formulation anglaise inhabituelle, reprise du cours.",
-    "The bystander was known like a hero : formulation anglaise inhabituelle, reprise du cours. To acknowledge signifie reconnaître.",
-    "Les exemples ajoutés pour illustrer les voix active et passive sont des exemples pédagogiques, pas des citations exactes du cours."
+    "Cours volontairement simplifié pour une première découverte de la voix passive.",
+    "Les exemples sont pédagogiques et utilisent du vocabulaire élémentaire.",
+    "Les formes au passé, les verbes irréguliers et les titres de presse seront vus plus tard."
   ]
 }

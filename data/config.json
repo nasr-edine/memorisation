@@ -1,12 +1,4 @@
 {
   "log_url": "https://script.google.com/macros/s/AKfycbwXDWsAnhJFkBAH5rsZsxBWGZXYDDNpBuFKsQaC-bivPAtbWmSsyyW9-6EMXTzoB9KPHA/exec",
   "token": "14121983"
-  "reglages": {
-    "defaut": { "seuil": 100, "intervals": [0, 1, 2, 4, 7, 15, 30], "session": 10 },
-    "aya": { "seuil": 80 },
-    "anfal": {},
-    "heba": {}
-  }
 }
-
-

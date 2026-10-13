@@ -1,0 +1,79 @@
+{
+  "pour": "aya",
+  "matiere": "Exemple",
+  "titre": "Leçon d'exemple (à remplacer)",
+  "items": [
+    {
+      "id": "pythagore",
+      "type": "theoreme",
+      "titre": "Théorème de Pythagore",
+      "texte": "Dans un triangle rectangle, le carré de l'hypoténuse est égal à la somme des carrés des deux autres côtés.",
+      "mots_cles": [
+        [
+          "triangle rectangle"
+        ],
+        [
+          "carré",
+          "carre"
+        ],
+        [
+          "hypoténuse"
+        ],
+        [
+          "somme"
+        ],
+        [
+          "carrés"
+        ],
+        [
+          "deux autres côtés",
+          "deux côtés"
+        ]
+      ],
+      "exemple": "Un triangle rectangle a des côtés de 3 cm et 4 cm de part et d'autre de l'angle droit : 3² + 4² = 9 + 16 = 25, donc l'hypoténuse mesure 5 cm."
+    },
+    {
+      "id": "bastille",
+      "type": "evenement",
+      "titre": "Prise de la Bastille",
+      "texte": "La prise de la Bastille a lieu le 14 juillet 1789 à Paris : elle est le symbole de la fin de l'Ancien Régime.",
+      "mots_cles": [
+        [
+          "prise de la bastille",
+          "bastille"
+        ],
+        [
+          "14 juillet"
+        ],
+        [
+          "1789"
+        ],
+        [
+          "Paris"
+        ],
+        [
+          "ancien régime"
+        ]
+      ],
+      "exemple": "C'est comme le jour de la fête nationale d'aujourd'hui : chaque 14 juillet, on commémore ce moment où le peuple parisien s'attaque à la prison royale."
+    },
+    {
+      "id": "irreductible",
+      "type": "definition",
+      "titre": "Fraction irréductible",
+      "texte": "Une fraction irréductible est une fraction qu'on ne peut plus simplifier.",
+      "mots_cles": [
+        [
+          "fraction irréductible"
+        ],
+        [
+          "ne peut plus"
+        ],
+        [
+          "simplifier"
+        ]
+      ],
+      "exemple": "La fraction 6/8 se simplifie en 3/4. Et 3/4 est irréductible, car 3 et 4 n'ont aucun diviseur commun autre que 1."
+    }
+  ]
+}

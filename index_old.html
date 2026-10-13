@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Par cœur</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+:root{--bg:#EEF2F7;--card:#fff;--ink:#1B2A41;--mut:#5B6B82;--acc:#2F5BEA;--ok:#1F9D6B;--ko:#D64550;--hl:#FFD84D;--line:#D5DDE8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.55 "Atkinson Hyperlegible",system-ui,sans-serif}
+main{max-width:720px;margin:0 auto;padding:16px}
+h1,h2,h3{margin:.2em 0}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0}
+.mut{color:var(--mut);font-size:.9em}
+button{font:inherit;border:0;border-radius:10px;padding:10px 16px;background:var(--acc);color:#fff;cursor:pointer;min-height:44px}
+button.s{background:#E3E9F3;color:var(--ink)}
+button.ok{background:var(--ok)}button.ko{background:var(--ko)}
+button.rec{background:var(--ko)}
+button:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.kids button{flex:1;font-size:1.3em;padding:22px}
+.txt{font-size:1.25em;line-height:1.8}
+.w{padding:1px 2px;border-radius:4px}.w.on{background:var(--hl)}
+textarea,input{width:100%;font:inherit;padding:10px;border:2px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+textarea{min-height:120px}
+.chip{display:inline-block;padding:2px 10px;margin:2px;border-radius:99px;color:#fff}
+.chip.y{background:var(--ok)}.chip.n{background:var(--ko)}
+.meter{height:10px;background:var(--line);border-radius:9px;overflow:hidden}.meter i{display:block;height:100%;background:var(--ok)}
+.tag{font-size:.8em;padding:1px 8px;border-radius:99px;background:#E3E9F3;color:var(--mut)}
+table{width:100%;border-collapse:collapse}td,th{padding:6px 4px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+button.sel{background:var(--ink)}
+.chart{display:flex;align-items:flex-end;gap:3px;height:130px;border-bottom:2px solid var(--line)}
+.col{flex:1;display:flex;flex-direction:column;justify-content:flex-end;height:100%}.col i{display:block;min-height:0}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}.kpis b{display:block;font-size:1.7em}
+.ev{padding:6px 0;border-bottom:1px solid var(--line)}
+@media(prefers-reduced-motion:no-preference){.meter i{transition:width .4s}}
+</style></head><body><main id="app">Chargement…</main>
+<script>
+const KIDS=[["aya","Aya"],["anfal","Anfal"],["heba","Heba"]];
+const DEF={intervals:[0,1,2,4,7,15,30],seuil:100,session:10};
+const MAITRISE=4; // boîte à partir de laquelle un élément est « maîtrisé »
+const app=document.getElementById('app');
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const today=()=>new Date().toISOString().slice(0,10);
+const addDays=n=>{const d=new Date();d.setDate(d.getDate()+n);return d.toISOString().slice(0,10)};
+let kid=localStorage.getItem('memo:kid'),lessons=[],P=null,rec=null,Q=null,ST=null;
+
+/* ---------- Sauvegarde (par enfant, dans le navigateur) ---------- */
+function load(){let o=null;try{o=JSON.parse(localStorage.getItem('memo:'+kid))}catch(e){}
+ P=Object.assign({xp:0,streak:0,last:'',items:{},cfg:{}},o||{});P.cfg=Object.assign({},DEF,P.cfg)}
+function save(){try{localStorage.setItem('memo:'+kid,JSON.stringify(P))}catch(e){}}
+const key=(l,it)=>l.file+'#'+it.id;
+
+/* ---------- Journal à distance (Google Sheets via Apps Script) ---------- */
+let CFG={},flushing=false;const QK='memo:queue';
+const getQ=()=>{try{return JSON.parse(localStorage.getItem(QK))||[]}catch(e){return[]}};
+function log(ev,d={}){
+ if(!CFG.log_url)return;
+ const q=getQ();
+ q.push(Object.assign({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),t:new Date().toISOString(),kid,ev,xp:P?P.xp:0},d));
+ try{localStorage.setItem(QK,JSON.stringify(q.slice(-500)))}catch(e){}
+ flush();
+}
+async function flush(){
+ if(flushing||!CFG.log_url)return;
+ const batch=getQ().slice(0,50);if(!batch.length)return;
+ flushing=true;let again=false;
+ try{
+  const r=await fetch(CFG.log_url,{method:'POST',body:JSON.stringify({token:CFG.token,events:batch})});
+  const j=await r.json();
+  if(j.ok){const ids=new Set(batch.map(e=>e.id));
+   const rest=getQ().filter(e=>!ids.has(e.id));localStorage.setItem(QK,JSON.stringify(rest));again=rest.length>0}
+ }catch(e){/* hors ligne : les événements restent en file et seront renvoyés */}
+ flushing=false;if(again)flush();
+}
+addEventListener('online',flush);
+
+/* ---------- Données ---------- */
+async function fetchLessons(){
+ try{CFG=await (await fetch('data/config.json',{cache:'no-store'})).json()}catch(e){CFG={}}
+ const idx=await (await fetch('data/index.json',{cache:'no-store'})).json();
+ lessons=[];
+ for(const f of idx.lecons){try{const l=await (await fetch('data/'+f,{cache:'no-store'})).json();l.file=f;lessons.push(l)}catch(e){console.warn('Fichier illisible :',f,e)}}
+}
+const mine=()=>lessons.filter(l=>String(l.pour).toLowerCase()===kid);
+
+/* ---------- Comparaison souple : mots-clés présents ET dans l'ordre ---------- */
+const stem=w=>w.length>3?w.replace(/[sx]$/,''):w;
+const toks=s=>s.toLowerCase().replace(/œ/g,'oe').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim().split(' ').filter(Boolean).map(stem);
+function check(it,said){
+ const t=toks(said);let pos=0;const res=[];
+ for(const kw of it.mots_cles){
+  const alts=Array.isArray(kw)?kw:[kw];let best=-1,end=-1;
+  for(const a of alts){const at=toks(a);
+   for(let i=pos;i<=t.length-at.length;i++){
+    if(at.every((w,j)=>t[i+j]===w)){if(best<0||i<best){best=i;end=i+at.length}break}}}
+  if(best>=0){pos=end;res.push({kw:alts[0],ok:true})}else res.push({kw:alts[0],ok:false});
+ }
+ const n=res.filter(r=>r.ok).length;
+ return{res,pct:Math.round(100*n/res.length)};
+}
+
+/* ---------- Répétition espacée (boîtes de Leitner) ---------- */
+function touch(){const t=today();if(P.last!==t){P.streak=P.last===addDays(-1)?P.streak+1:1;P.last=t}}
+function learned(li,i){const l=mine()[li],it=l.items[i],k=key(l,it);log('appris',{lecon:l.titre,element:it.titre});if(!P.items[k]){P.items[k]={box:0,due:today(),ok:0,ko:0};P.xp+=2}touch();save()}
+function grade(k,ok){
+ const s=P.items[k]||(P.items[k]={box:0,ok:0,ko:0});
+ s.box=ok?Math.min(s.box+1,P.cfg.intervals.length-1):0;
+ s.due=addDays(P.cfg.intervals[s.box]);
+ ok?(s.ok++,P.xp+=10):(s.ko++,P.xp+=3);
+ touch();save();
+}
+const stat=l=>{let n=0,d=0,m=0;l.items.forEach(it=>{const s=P.items[key(l,it)];
+ if(!s)n++;else{if(s.due<=today())d++;if(s.box>=MAITRISE)m++}});return{n,d,m,t:l.items.length}};
+function dueQueue(ls){
+ const q=[];ls.forEach(l=>l.items.forEach(it=>{const s=P.items[key(l,it)];if(s&&s.due<=today())q.push({l,it,b:s.box})}));
+ return q.sort((a,b)=>a.b-b.b).slice(0,P.cfg.session);
+}
+
+/* ---------- Voix ---------- */
+function words(t){let h='',i=0;t.split(/(\s+)/).forEach(p=>{
+ if(!p||/^\s+$/.test(p))h+=p;else h+=`<span class="w" data-s="${i}" data-e="${i+p.length}">${esc(p)}</span>`;i+=p.length});return h}
+function speak(){
+ const box=document.getElementById('txt');if(!box||!window.speechSynthesis)return alert("Lecture vocale indisponible sur ce navigateur.");
+ speechSynthesis.cancel();
+ const u=new SpeechSynthesisUtterance(box.textContent);u.lang='fr-FR';u.rate=.9;
+ const clear=()=>box.querySelectorAll('.on').forEach(w=>w.classList.remove('on'));
+ u.onboundary=e=>box.querySelectorAll('.w').forEach(w=>w.classList.toggle('on',+w.dataset.s<=e.charIndex&&e.charIndex<+w.dataset.e));
+ u.onend=clear;u.onerror=clear;speechSynthesis.speak(u);
+}
+function mic(){
+ const SR=window.SpeechRecognition||window.webkitSpeechRecognition,ta=document.getElementById('ans'),b=document.getElementById('mic');
+ if(!SR)return alert("Reconnaissance vocale indisponible ici : écris ta réponse (Chrome ou Safari la proposent).");
+ if(rec){rec.stop();return}
+ rec=new SR();rec.lang='fr-FR';rec.continuous=true;rec.interimResults=true;const base=ta.value?ta.value+' ':'';
+ rec.onresult=e=>{let s='';for(let i=0;i<e.results.length;i++)s+=e.results[i][0].transcript;ta.value=base+s};
+ rec.onend=()=>{rec=null;b.classList.remove('rec');b.textContent='🎤 Parler'};
+ rec.start();b.classList.add('rec');b.textContent='⏹ Arrêter';
+}
+const stop=()=>{try{speechSynthesis.cancel()}catch(e){}if(rec)rec.stop()};
+
+/* ---------- Écrans ---------- */
+function pickKid(){
+ app.innerHTML=`<h1>Qui révise ?</h1><div class="row kids">${KIDS.map(([id,n])=>`<button onclick="setKid('${id}')">${n}</button>`).join('')}</div>
+  <p><button class="s" onclick="parentOpen()">Espace parent</button></p>`;
+}
+function setKid(id){kid=id;localStorage.setItem('memo:kid',id);load();log('ouverture');menu()}
+function menu(){
+ stop();const ls=mine(),lv=Math.floor(P.xp/100)+1;
+ const totalDue=ls.reduce((a,l)=>a+stat(l).d,0);
+ app.innerHTML=`<div class="bar"><h1>${KIDS.find(k=>k[0]===kid)[1]}</h1>
+  <div><button class="s" onclick="settings()">Réglages</button> <button class="s" onclick="pickKid()">Changer</button></div></div>
+  <div class="card"><b>Niveau ${lv}</b> · ${P.xp} XP · série : ${P.streak} jour${P.streak>1?'s':''}
+  <div class="meter"><i style="width:${P.xp%100}%"></i></div>
+  <div class="row"><button onclick="recall(dueQueue(mine()))" ${totalDue?'':'disabled'}>Réviser (${totalDue} à revoir)</button>
+  <button class="s" onclick="bilan()">Bilan</button></div></div>
+  ${ls.length?ls.map((l,i)=>{const s=stat(l);return`<div class="card"><h3>${esc(l.titre)}</h3>
+   <span class="tag">${esc(l.matiere||'')}</span>
+   <div class="mut">${s.n} à apprendre · ${s.d} à revoir · ${s.m}/${s.t} maîtrisés</div>
+   <div class="meter"><i style="width:${100*s.m/s.t}%"></i></div>
+   <div class="row"><button onclick="study(${i},0)">Apprendre</button>
+   <button class="s" onclick="recall(dueQueue([mine()[${i}]]))" ${s.d?'':'disabled'}>Réviser</button></div></div>`}).join('')
+  :`<div class="card">Aucune leçon pour ${KIDS.find(k=>k[0]===kid)[1]} pour l'instant.</div>`}`;
+}
+function study(li,i){
+ stop();const l=mine()[li],it=l.items[i];
+ app.innerHTML=`<div class="bar"><button class="s" onclick="menu()">← Retour</button><span class="mut">${esc(l.titre)} · ${i+1}/${l.items.length}</span></div>
+  <div class="card"><h2>${esc(it.titre)}</h2><div class="txt" id="txt">${words(it.texte)}</div>
+  <div class="row"><button onclick="speak()">🔊 Écouter</button><button class="s" onclick="stop()">Stop</button></div></div>
+  <div class="row"><button class="s" ${i?'':'disabled'} onclick="study(${li},${i-1})">Précédent</button>
+  <button onclick="learned(${li},${i});${i+1<l.items.length?`study(${li},${i+1})`:'menu()'}">${i+1<l.items.length?'Lu, suivant':'Terminé'}</button></div>`;
+}
+function recall(q){
+ if(!q.length)return menu();Q={q:[...q],i:0,done:0};showCard();
+}
+function showCard(){
+ stop();ST=null;const c=Q.q[Q.i];
+ app.innerHTML=`<div class="bar"><button class="s" onclick="menu()">Arrêter</button><span class="mut">${Q.i+1}/${Q.q.length}</span></div>
+  <div class="card"><span class="tag">${esc(c.l.matiere||'')}</span><h2>${esc(c.it.titre)}</h2>
+  <p class="mut">Récite de mémoire : ${c.it.mots_cles.length} idées clés à citer dans l'ordre.</p>
+  <textarea id="ans" aria-label="Ta réponse" placeholder="Parle ou écris ici"></textarea>
+  <div class="row"><button id="mic" class="s" onclick="mic()">🎤 Parler</button><button onclick="verify()">Vérifier</button></div></div>
+  <div id="res"></div>`;
+}
+function verify(){
+ if(rec)rec.stop();const c=Q.q[Q.i],said=document.getElementById('ans').value,r=check(c.it,said);
+ ST={ok:r.pct>=P.cfg.seuil,r};renderRes();
+}
+function renderRes(){
+ const c=Q.q[Q.i],{ok,r}=ST;
+ document.getElementById('res').innerHTML=`<div class="card"><h3>${ok?'✅ Bien retenu':'À retravailler'} (${r.pct} %)</h3>
+  <div>${r.res.map(x=>`<span class="chip ${x.ok?'y':'n'}">${esc(x.kw)}</span>`).join('')}</div>
+  <p class="mut">Rouge : manquant ou dans le désordre.</p>
+  <div class="txt">${esc(c.it.texte)}</div>
+  <div class="row"><button onclick="next()">Suivant</button>
+  ${ok?'':`<button class="s" onclick="document.getElementById('res').innerHTML='';ST=null">Réessayer</button>
+  <button class="s" onclick="ST.ok=true;renderRes()">Je le savais (micro mal compris)</button>`}</div></div>`;
+}
+function next(){
+ const c=Q.q[Q.i],k=key(c.l,c.it);grade(k,ST.ok);
+ log('revision',{lecon:c.l.titre,element:c.it.titre,ok:ST.ok?1:0,pct:ST.r.pct,boite:P.items[k].box,manquants:ST.r.res.filter(x=>!x.ok).map(x=>x.kw).join(' | ')});
+ if(!ST.ok&&!c.retry){c.retry=1;Q.q.push({l:c.l,it:c.it,retry:1})}
+ Q.i++;Q.i<Q.q.length?showCard():(alert('Séance terminée !'),menu());
+}
+function bilan(){
+ const ls=mine();
+ app.innerHTML=`<div class="bar"><button class="s" onclick="menu()">← Retour</button><h2>Bilan</h2></div>`+ls.map(l=>{
+  const rows=l.items.map(it=>{const s=P.items[key(l,it)];
+   const st=!s?'À apprendre':s.box>=MAITRISE?'Maîtrisé':'En cours';
+   return`<tr><td>${esc(it.titre)}</td><td>${st}</td><td>${s?`${s.ok} ✓ / ${s.ko} ✗`:'–'}</td></tr>`}).join('');
+  const s=stat(l);
+  return`<div class="card"><h3>${esc(l.titre)}</h3><div class="mut">${s.m}/${s.t} maîtrisés</div>
+   <table><tr><th>Élément</th><th>Statut</th><th>Essais</th></tr>${rows}</table></div>`}).join('');
+}
+function settings(){
+ const c=P.cfg;
+ app.innerHTML=`<div class="bar"><button class="s" onclick="menu()">← Retour</button><h2>Réglages</h2></div>
+  <div class="card"><label>Intervalles de révision (en jours, séparés par des virgules)
+  <input id="iv" value="${c.intervals.join(',')}"></label>
+  <p class="mut">Réussite : on monte d'une étape. Échec : retour à la première.</p>
+  <label>Idées clés à retrouver pour valider (%)<input id="se" type="number" min="10" max="100" value="${c.seuil}"></label>
+  <label>Cartes par séance<input id="ss" type="number" min="1" max="50" value="${c.session}"></label>
+  <div class="row"><button onclick="saveCfg()">Enregistrer</button>
+  <button class="s" onclick="document.getElementById('iv').value='${DEF.intervals}';document.getElementById('se').value=${DEF.seuil};document.getElementById('ss').value=${DEF.session}">Valeurs par défaut</button></div></div>
+  <div class="card"><button class="ko" onclick="if(confirm('Effacer toute la progression ?')){P.items={};P.xp=0;P.streak=0;save();menu()}">Effacer la progression</button></div>`;
+}
+function saveCfg(){
+ const iv=document.getElementById('iv').value.split(',').map(x=>parseInt(x,10)).filter(x=>x>=0);
+ if(iv.length>=MAITRISE+1)P.cfg.intervals=iv;else return alert('Il faut au moins '+(MAITRISE+1)+' intervalles.');
+ P.cfg.seuil=+document.getElementById('se').value||100;P.cfg.session=+document.getElementById('ss').value||10;save();menu();
+}
+
+/* ---------- Espace parent (lecture du journal) ---------- */
+let D={ev:[],kid:'all',days:7};
+const nm=id=>(KIDS.find(k=>k[0]===id)||[0,id])[1];
+const dk=d=>d.toLocaleDateString('sv');
+const fb=(l,a,f)=>`<button class="${a?'sel':'s'}" onclick="${f}">${l}</button>`;
+function parentOpen(){const c=sessionStorage.getItem('memo:pc');c?parentLoad(c):parentLogin()}
+function parentLogin(msg){
+ stop();
+ app.innerHTML=`<div class="bar"><button class="s" onclick="pickKid()">← Retour</button><h2>Espace parent</h2></div>
+ <div class="card">${CFG.log_url?`<label>Code parent<input id="pc" type="password" autocomplete="current-password"></label>
+ ${msg?`<p style="color:var(--ko)">${msg}</p>`:''}
+ <div class="row"><button onclick="parentLoad(document.getElementById('pc').value)">Entrer</button></div>`
+ :"Le journal n'est pas encore configuré (data/config.json)."}</div>`;
+}
+async function parentLoad(code){
+ app.innerHTML='<div class="card">Chargement…</div>';
+ try{
+  const j=await (await fetch(CFG.log_url+'?action=read&code='+encodeURIComponent(code))).json();
+  if(!j.ok){sessionStorage.removeItem('memo:pc');return parentLogin(j.error==='code'?'Code incorrect.':'Erreur : '+j.error)}
+  sessionStorage.setItem('memo:pc',code);
+  D.ev=j.events.map(e=>Object.assign(e,{d:new Date(e.date_heure)})).filter(e=>!isNaN(e.d));dash();
+ }catch(e){parentLogin('Connexion impossible : vérifie le réseau et le déploiement du script.')}
+}
+function dash(){
+ const kids=D.kid==='all'?KIDS.map(k=>k[0]):[D.kid];
+ const all=D.ev.filter(e=>kids.includes(String(e.enfant)));
+ const since=D.days?Date.now()-D.days*864e5:0;
+ const ev=all.filter(e=>e.d>=since),rev=ev.filter(e=>e.evenement==='revision');
+ const okN=rev.filter(e=>+e.reussite===1).length;
+ const jours=new Set(ev.map(e=>dk(e.d))).size;
+ const last=all.length?new Date(Math.max(...all.map(e=>e.d))):null;
+ // activité par jour
+ const n=Math.min(D.days||30,30),cols=[];
+ for(let i=n-1;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);const k=dk(d);
+  const r=all.filter(e=>e.evenement==='revision'&&dk(e.d)===k);
+  cols.push({d,ok:r.filter(e=>+e.reussite===1).length,ko:r.filter(e=>+e.reussite!==1).length})}
+ const mx=Math.max(1,...cols.map(c=>c.ok+c.ko)),fd=d=>d.toLocaleDateString('fr-FR',{day:'2-digit',month:'2-digit'});
+ // maîtrise (tout l'historique)
+ const lastB={},seen=new Set();
+ [...all].sort((a,b)=>a.d-b.d).forEach(e=>{const k=[e.enfant,e.lecon,e.element].join('|');
+  if(e.evenement==='revision'){lastB[k]=+e.boite;seen.add(k)}else if(e.evenement==='appris')seen.add(k)});
+ const prog=kids.map(id=>{
+  const rows=lessons.filter(l=>String(l.pour).toLowerCase()===id).map(l=>{
+   let m=0,c=0,a=0;l.items.forEach(it=>{const k=[id,l.titre,it.titre].join('|');
+    if(lastB[k]>=MAITRISE)m++;else if(seen.has(k))c++;else a++});
+   return`<div><b>${esc(l.titre)}</b> <span class="mut">${m} maîtrisés · ${c} en cours · ${a} à apprendre</span>
+   <div class="meter"><i style="width:${100*m/l.items.length}%"></i></div></div>`}).join('')||'<span class="mut">Aucune leçon.</span>';
+  return`<div class="card"><h3>${nm(id)}</h3>${rows}</div>`}).join('');
+ // éléments à retravailler
+ const w={};rev.forEach(e=>{const k=[e.enfant,e.lecon,e.element].join('|');
+  const o=w[k]||(w[k]={e,n:0,ko:0,m:{}});o.n++;
+  if(+e.reussite!==1){o.ko++;String(e.manquants).split(' | ').filter(Boolean).forEach(x=>o.m[x]=(o.m[x]||0)+1)}});
+ const weak=Object.values(w).filter(o=>o.ko).sort((a,b)=>b.ko-a.ko||b.ko/b.n-a.ko/a.n).slice(0,8);
+ // journal
+ const line=e=>{const t=e.d.toLocaleString('fr-FR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}),who=nm(e.enfant);
+  if(e.evenement==='revision')return`${t} · <b>${who}</b> ${+e.reussite===1?'✅':'❌'} ${esc(e.element)} (${e.pct} %)${e.manquants?` <span class="mut">manque : ${esc(e.manquants)}</span>`:''}`;
+  if(e.evenement==='appris')return`${t} · <b>${who}</b> 📖 a lu « ${esc(e.element)} »`;
+  return`${t} · <b>${who}</b> a ouvert l'app`};
+ const jr=[...ev].sort((a,b)=>b.d-a.d).slice(0,30);
+ app.innerHTML=`<div class="bar"><button class="s" onclick="pickKid()">← Quitter</button><h2>Espace parent</h2>
+  <button class="s" onclick="parentLoad(sessionStorage.getItem('memo:pc'))">Actualiser</button></div>
+  <div class="row">${fb('Tous',D.kid==='all',"D.kid='all';dash()")}${KIDS.map(([id,x])=>fb(x,D.kid===id,`D.kid='${id}';dash()`)).join('')}</div>
+  <div class="row">${[[7,'7 jours'],[30,'30 jours'],[0,'Tout']].map(([d,x])=>fb(x,D.days===d,`D.days=${d};dash()`)).join('')}</div>
+  <div class="card kpis"><div><b>${rev.length}</b>révisions</div>
+   <div><b>${rev.length?Math.round(100*okN/rev.length):0} %</b>de réussite</div>
+   <div><b>${jours}</b>jour${jours>1?'s':''} actif${jours>1?'s':''}</div>
+   <div><b>${last?fd(last):'–'}</b>dernière activité</div></div>
+  <div class="card"><h3>Révisions par jour</h3>
+   <div class="chart">${cols.map(c=>`<div class="col" title="${fd(c.d)} : ${c.ok} réussies, ${c.ko} à revoir"><i style="height:${100*c.ko/mx}%;background:var(--ko)"></i><i style="height:${100*c.ok/mx}%;background:var(--ok)"></i></div>`).join('')}</div>
+   <div class="bar mut"><span>${fd(cols[0].d)}</span><span>vert : réussies · rouge : à revoir</span><span>${fd(cols[cols.length-1].d)}</span></div></div>
+  ${prog}
+  <div class="card"><h3>À retravailler</h3>${weak.length?weak.map(o=>`<div class="ev"><b>${nm(o.e.enfant)}</b> · ${esc(o.e.element)} <span class="tag">${o.ko} échec${o.ko>1?'s':''} / ${o.n}</span>
+   <div class="mut">Souvent oublié : ${Object.entries(o.m).sort((a,b)=>b[1]-a[1]).slice(0,3).map(x=>esc(x[0])).join(', ')||'–'}</div></div>`).join(''):'<span class="mut">Rien à signaler sur cette période.</span>'}</div>
+  <div class="card"><h3>Journal récent</h3>${jr.length?jr.map(e=>`<div class="ev">${line(e)}</div>`).join(''):'<span class="mut">Aucune activité sur cette période.</span>'}</div>`;
+}
+
+/* ---------- Démarrage ---------- */
+fetchLessons().then(()=>{kid&&KIDS.some(k=>k[0]===kid)?(load(),log('ouverture'),menu()):pickKid()})
+ .catch(e=>app.innerHTML='<div class="card">Impossible de charger <code>data/index.json</code>. Vérifie le dépôt.</div>');
+</script></body></html>

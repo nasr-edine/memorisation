@@ -1,86 +1,57 @@
 {
   "pour": "anfal",
   "matiere": "Histoire",
-  "titre": "Dans la mosquée de Damas",
+  "titre": "La mosquée de Damas au XIIe siècle",
   "items": [
     {
-      "id": "sermon-imam",
+      "id": "imam-mosquee",
       "type": "evenement",
-      "titre": "Le déroulement du sermon de l'imam",
-      "texte": "L'imam monta en chaire. Les lecteurs assis devant lui sur des bancs se mirent à réciter le Coran, faisant entendre des modulations admirables et des inflexions émouvantes. Alors l'imam prit la parole et prononça un sermon empreint de sérénité et de dignité.",
+      "titre": "Que fait l'imam dans la mosquée ?",
+      "texte": "L'imam récite un sermon devant les fidèles.",
       "mots_cles": [
         ["imam"],
-        ["chaire"],
-        ["lecteurs"],
-        ["Coran"],
-        ["modulations"],
-        ["inflexions"],
-        ["sermon"]
+        ["sermon"],
+        ["fidèles"]
       ]
     },
     {
-      "id": "questions-imam",
+      "id": "coran-lecteurs",
       "type": "evenement",
-      "titre": "Les questions adressées à l'imam",
-      "texte": "Ensuite, il fut assailli de partout par une pluie de questions auxquelles il répondit sans rester court et sans hésiter.",
+      "titre": "Que font les lecteurs ?",
+      "texte": "Les lecteurs récitent le Coran.",
       "mots_cles": [
-        ["questions"],
-        ["répondit"],
-        ["sans rester court"],
-        ["sans hésiter"]
+        ["lecteurs"],
+        ["récitent"],
+        ["Coran"]
       ]
     },
     {
-      "id": "coins-mosquee",
+      "id": "enseignement-mosquee",
       "type": "definition",
-      "titre": "Les espaces d'étude de la mosquée de Damas",
-      "texte": "La vénérable mosquée de Damas a un certain nombre de 'coins' que les lettrés fréquentent pour copier des livres ou pour enseigner aux étudiants.",
+      "titre": "À quoi sert la mosquée pour les lettrés ?",
+      "texte": "Les lettrés viennent à la mosquée pour copier des livres et enseigner aux élèves.",
       "mots_cles": [
-        ["mosquée de Damas"],
-        ["coins"],
         ["lettrés"],
         ["copier des livres"],
-        ["enseigner aux étudiants"]
+        ["enseigner"],
+        ["élèves"]
       ]
     },
     {
-      "id": "cour-galeries",
+      "id": "cour-mosquee",
       "type": "definition",
-      "titre": "La cour de la mosquée de Damas",
-      "texte": "La cour est entourée de galeries sur trois de ses côtés, lieu de rendez-vous, de promenades et de délassement des habitants de la ville.",
+      "titre": "À quoi sert la cour de la mosquée ?",
+      "texte": "La cour est un lieu de rencontre et de promenade. Les habitants s'y retrouvent et discutent.",
       "mots_cles": [
         ["cour"],
-        ["galeries"],
-        ["trois"],
-        ["rendez-vous"],
-        ["promenades"],
-        ["délassement"],
-        ["habitants de la ville"]
-      ]
-    },
-    {
-      "id": "vie-quotidienne-cour",
-      "type": "evenement",
-      "titre": "Les activités des habitants dans la cour",
-      "texte": "Chaque soir, on les voit aller et venir. L'un s'entretient avec un ami, l'autre récite le Coran.",
-      "mots_cles": [
-        ["chaque soir"],
-        ["aller et venir"],
-        ["ami"],
-        ["récite le Coran"]
-      ]
-    },
-    {
-      "id": "source-ibn-jubayr",
-      "type": "date",
-      "titre": "L'auteur et l'époque du récit",
-      "texte": "D'après Ibn Jubayr, Voyages, XIIe siècle.",
-      "mots_cles": [
-        ["Ibn Jubayr"],
-        ["Voyages"],
-        ["XIIe siècle", "12e siècle", "douzième siècle"]
+        ["lieu de rencontre"],
+        ["promenade"],
+        ["habitants"],
+        ["discutent"]
       ]
     }
   ],
-  "alertes": []
+  "alertes": [
+    "Les textes ont été simplifiés et reformulés pour faciliter la mémorisation. Ils ne reprennent pas mot pour mot le document original."
+  ]
 }

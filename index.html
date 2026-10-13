@@ -47,7 +47,11 @@ let kid=localStorage.getItem('memo:kid'),lessons=[],P=null,rec=null,Q=null,ST=nu
 
 /* ---------- Sauvegarde (par enfant, dans le navigateur) ---------- */
 function load(){let o=null;try{o=JSON.parse(localStorage.getItem('memo:'+kid))}catch(e){}
- P=Object.assign({xp:0,streak:0,last:'',items:{},cfg:{}},o||{});P.cfg=Object.assign({},DEF,P.cfg)}
+ P=Object.assign({xp:0,streak:0,last:'',items:{},cfg:{}},o||{});
+ const R=CFG.reglages||{},c=Object.assign({},DEF,R.defaut,R[kid]);
+ if(!Array.isArray(c.intervals)||c.intervals.length<=MAITRISE||c.intervals.some(x=>!(x>=0)))c.intervals=DEF.intervals;
+ c.seuil=Math.min(100,Math.max(10,+c.seuil||DEF.seuil));c.session=Math.max(1,+c.session||DEF.session);
+ P.cfg=c}
 function save(){try{localStorage.setItem('memo:'+kid,JSON.stringify(P))}catch(e){}}
 const key=(l,it)=>l.file+'#'+it.id;
 
@@ -215,19 +219,10 @@ function bilan(){
 function settings(){
  const c=P.cfg;
  app.innerHTML=`<div class="bar"><button class="s" onclick="menu()">← Retour</button><h2>Réglages</h2></div>
-  <div class="card"><label>Intervalles de révision (en jours, séparés par des virgules)
-  <input id="iv" value="${c.intervals.join(',')}"></label>
-  <p class="mut">Réussite : on monte d'une étape. Échec : retour à la première.</p>
-  <label>Idées clés à retrouver pour valider (%)<input id="se" type="number" min="10" max="100" value="${c.seuil}"></label>
-  <label>Cartes par séance<input id="ss" type="number" min="1" max="50" value="${c.session}"></label>
-  <div class="row"><button onclick="saveCfg()">Enregistrer</button>
-  <button class="s" onclick="document.getElementById('iv').value='${DEF.intervals}';document.getElementById('se').value=${DEF.seuil};document.getElementById('ss').value=${DEF.session}">Valeurs par défaut</button></div></div>
+  <div class="card"><p class="mut">Ces réglages sont définis par le parent dans le dépôt (data/config.json).</p>
+  <p>Validation : ${c.seuil} % des idées clés, dans l'ordre<br>
+  Intervalles de révision : ${c.intervals.join(', ')} jours<br>Cartes par séance : ${c.session}</p></div>
   <div class="card"><button class="ko" onclick="if(confirm('Effacer toute la progression ?')){P.items={};P.xp=0;P.streak=0;save();menu()}">Effacer la progression</button></div>`;
-}
-function saveCfg(){
- const iv=document.getElementById('iv').value.split(',').map(x=>parseInt(x,10)).filter(x=>x>=0);
- if(iv.length>=MAITRISE+1)P.cfg.intervals=iv;else return alert('Il faut au moins '+(MAITRISE+1)+' intervalles.');
- P.cfg.seuil=+document.getElementById('se').value||100;P.cfg.session=+document.getElementById('ss').value||10;save();menu();
 }
 
 /* ---------- Espace parent (lecture du journal) ---------- */

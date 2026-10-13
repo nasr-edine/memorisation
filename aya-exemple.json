@@ -1,0 +1,28 @@
+{
+  "pour": "aya",
+  "matiere": "Exemple",
+  "titre": "Leçon d'exemple (à remplacer)",
+  "items": [
+    {
+      "id": "pythagore",
+      "type": "theoreme",
+      "titre": "Théorème de Pythagore",
+      "texte": "Dans un triangle rectangle, le carré de l'hypoténuse est égal à la somme des carrés des deux autres côtés.",
+      "mots_cles": [["triangle rectangle"], ["carré", "carre"], ["hypoténuse"], ["somme"], ["carrés"], ["deux autres côtés", "deux côtés"]]
+    },
+    {
+      "id": "bastille",
+      "type": "evenement",
+      "titre": "Prise de la Bastille",
+      "texte": "La prise de la Bastille a lieu le 14 juillet 1789 à Paris : elle est le symbole de la fin de l'Ancien Régime.",
+      "mots_cles": [["prise de la bastille", "bastille"], ["14 juillet"], ["1789"], ["Paris"], ["ancien régime"]]
+    },
+    {
+      "id": "irreductible",
+      "type": "definition",
+      "titre": "Fraction irréductible",
+      "texte": "Une fraction irréductible est une fraction qu'on ne peut plus simplifier.",
+      "mots_cles": [["fraction irréductible"], ["ne peut plus"], ["simplifier"]]
+    }
+  ]
+}

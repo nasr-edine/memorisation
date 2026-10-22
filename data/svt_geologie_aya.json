@@ -1,0 +1,187 @@
+{
+  "pour": "aya",
+  "matiere": "svt",
+  "titre": "Génétique : les bases à retenir",
+  "items": [
+    {
+      "id": "allele",
+      "type": "definition",
+      "titre": "Un allèle",
+      "texte": "Un allèle est une version d'un gène.",
+      "exemple": "Un gène peut avoir les allèles M et m.",
+      "mots_cles": [
+        ["allèle"],
+        ["version d'un gène"]
+      ]
+    },
+    {
+      "id": "allele-dominant",
+      "type": "definition",
+      "titre": "Un allèle dominant",
+      "texte": "Un allèle dominant s'exprime même s'il est présent en un seul exemplaire.",
+      "exemple": "M/m : l'allèle M dominant s'exprime.",
+      "mots_cles": [
+        ["allèle dominant"],
+        ["un seul exemplaire"],
+        ["s'exprime"]
+      ]
+    },
+    {
+      "id": "allele-recessif",
+      "type": "definition",
+      "titre": "Un allèle récessif",
+      "texte": "Un allèle récessif s'exprime ici lorsqu'il est présent en deux exemplaires.",
+      "exemple": "m/m : le caractère récessif s'exprime.",
+      "mots_cles": [
+        ["allèle récessif"],
+        ["deux exemplaires"],
+        ["m/m"]
+      ]
+    },
+    {
+      "id": "homozygote",
+      "type": "definition",
+      "titre": "Homozygote",
+      "texte": "Un individu homozygote possède deux allèles identiques.",
+      "exemple": "M/M ou m/m.",
+      "mots_cles": [
+        ["homozygote"],
+        ["deux allèles identiques"],
+        ["M/M", "m/m"]
+      ]
+    },
+    {
+      "id": "heterozygote",
+      "type": "definition",
+      "titre": "Hétérozygote",
+      "texte": "Un individu hétérozygote possède deux allèles différents.",
+      "exemple": "M/m.",
+      "mots_cles": [
+        ["hétérozygote"],
+        ["deux allèles différents"],
+        ["M/m"]
+      ]
+    },
+    {
+      "id": "genotype",
+      "type": "definition",
+      "titre": "Le génotype",
+      "texte": "Le génotype est la combinaison des allèles d'un individu.",
+      "exemple": "M/M, M/m ou m/m.",
+      "mots_cles": [
+        ["génotype"],
+        ["combinaison des allèles"]
+      ]
+    },
+    {
+      "id": "phenotype",
+      "type": "definition",
+      "titre": "Le phénotype",
+      "texte": "Le phénotype est l'ensemble des caractères observables d'un individu.",
+      "exemple": "Un individu peut être sain ou malade.",
+      "mots_cles": [
+        ["phénotype"],
+        ["caractères observables"]
+      ]
+    },
+    {
+      "id": "phenotype-nouveau",
+      "type": "definition",
+      "titre": "Un phénotype nouveau",
+      "texte": "C'est un caractère chez un enfant qui n'est pas observé chez ses parents.",
+      "exemple": "Un enfant albinos peut naître de deux parents non albinos.",
+      "mots_cles": [
+        ["phénotype nouveau"],
+        ["caractère nouveau"],
+        ["parents"]
+      ]
+    },
+    {
+      "id": "caryotype",
+      "type": "definition",
+      "titre": "Le caryotype",
+      "texte": "Le caryotype est une présentation ordonnée des chromosomes.",
+      "mots_cles": [
+        ["caryotype"],
+        ["chromosomes"],
+        ["présentation ordonnée"]
+      ]
+    },
+    {
+      "id": "meiose",
+      "type": "definition",
+      "titre": "La méiose",
+      "texte": "La méiose produit les cellules reproductrices, qui possèdent 23 chromosomes chez l'humain.",
+      "mots_cles": [
+        ["méiose"],
+        ["cellules reproductrices"],
+        ["23 chromosomes"]
+      ]
+    },
+    {
+      "id": "fecondation",
+      "type": "definition",
+      "titre": "La fécondation",
+      "texte": "La fécondation est l'union d'un ovule et d'un spermatozoïde.",
+      "mots_cles": [
+        ["fécondation"],
+        ["ovule"],
+        ["spermatozoïde"]
+      ]
+    },
+    {
+      "id": "tableau-croisement",
+      "type": "definition",
+      "titre": "Le tableau de croisement",
+      "texte": "Le tableau de croisement permet de prévoir les génotypes possibles des enfants.",
+      "mots_cles": [
+        ["tableau de croisement"],
+        ["génotypes possibles"],
+        ["enfants"]
+      ]
+    },
+    {
+      "id": "enfant-malade-recessif",
+      "type": "regle",
+      "titre": "Un enfant atteint d'une maladie récessive",
+      "texte": "Un enfant atteint possède deux allèles récessifs.",
+      "exemple": "Son génotype est m/m.",
+      "mots_cles": [
+        ["maladie récessive"],
+        ["deux allèles récessifs"],
+        ["m/m"]
+      ]
+    },
+    {
+      "id": "parents-sains-porteurs",
+      "type": "regle",
+      "titre": "Deux parents sains et un enfant malade",
+      "texte": "Si la maladie est récessive, deux parents sains ayant un enfant malade sont porteurs de l'allèle récessif.",
+      "exemple": "Les deux parents sont M/m et l'enfant malade est m/m.",
+      "mots_cles": [
+        ["parents sains"],
+        ["maladie récessive"],
+        ["porteurs"],
+        ["M/m"]
+      ]
+    },
+    {
+      "id": "croisement-25",
+      "type": "regle",
+      "titre": "Le croisement M/m × M/m",
+      "texte": "Pour chaque grossesse, le risque d'avoir un enfant m/m est de 25 %.",
+      "exemple": "25 % M/M, 50 % M/m et 25 % m/m.",
+      "mots_cles": [
+        ["M/m × M/m"],
+        ["25 %"],
+        ["50 %"],
+        ["risque"]
+      ]
+    }
+  ],
+  "alertes": [
+    "Les lettres M et m sont des exemples simplifiés pour représenter deux allèles.",
+    "La règle des deux allèles récessifs concerne ici une maladie récessive.",
+    "Les probabilités du croisement sont calculées pour chaque grossesse."
+  ]
+}

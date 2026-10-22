@@ -1,518 +1,105 @@
 {
   "pour": "anfal",
   "matiere": "francais",
-  "titre": "Grammaire : les classes grammaticales variables",
+  "titre": "Grammaire : les essentiels à retenir",
   "items": [
     {
-      "id": "classe-variable",
+      "id": "classes-variables",
       "type": "definition",
-      "titre": "Une classe variable",
-      "texte": "Un mot variable peut changer de forme.",
-      "exemple": "petit, petite, petits, petites.",
+      "titre": "1. Les classes grammaticales variables",
+      "texte": "Il existe 5 classes variables : le nom, le déterminant, l'adjectif, le pronom et le verbe.",
+      "exemple": "Les petits chats jouent. Les, petits, chats et jouent sont des mots de classes différentes.",
       "mots_cles": [
-        ["variable"],
-        ["changer de forme"]
+        ["nom", "déterminant", "adjectif", "pronom", "verbe"],
+        ["5 classes variables"]
       ]
     },
     {
-      "id": "cinq-classes-variables",
-      "type": "definition",
-      "titre": "Les 5 classes variables",
-      "texte": "Les 5 classes variables sont le nom, le déterminant, l'adjectif, le verbe et le pronom.",
-      "mots_cles": [
-        ["nom"],
-        ["déterminant"],
-        ["adjectif"],
-        ["verbe"],
-        ["pronom"]
-      ]
-    },
-    {
-      "id": "verbe-role",
-      "type": "definition",
-      "titre": "Le verbe",
-      "texte": "Le verbe exprime une action ou un état.",
-      "exemple": "Lina court. Lina semble fatiguée.",
-      "mots_cles": [
-        ["verbe"],
-        ["action"],
-        ["état"]
-      ]
-    },
-    {
-      "id": "reconnaitre-verbe",
+      "id": "verbe-sujet",
       "type": "regle",
-      "titre": "Reconnaître un verbe",
-      "texte": "On peut souvent encadrer le verbe avec ne... pas.",
-      "exemple": "Lina court. → Lina ne court pas.",
+      "titre": "2. Le verbe et son sujet",
+      "texte": "Le verbe s'accorde avec son sujet : il change selon la personne et le nombre.",
+      "exemple": "L'enfant joue. Les enfants jouent.",
       "mots_cles": [
-        ["ne... pas"],
-        ["verbe"]
+        ["verbe", "sujet"],
+        ["accord"],
+        ["personne", "nombre"]
       ]
     },
     {
-      "id": "variation-verbe",
-      "type": "regle",
-      "titre": "Les variations du verbe",
-      "texte": "Le verbe varie selon le temps, le mode, la personne et le nombre.",
-      "exemple": "Je joue. Nous jouons.",
-      "mots_cles": [
-        ["temps"],
-        ["mode"],
-        ["personne"],
-        ["nombre"]
-      ]
-    },
-    {
-      "id": "accord-verbe",
-      "type": "regle",
-      "titre": "L'accord du verbe",
-      "texte": "Le verbe s'accorde avec son sujet.",
-      "exemple": "Elle joue. Elles jouent.",
-      "mots_cles": [
-        ["verbe"],
-        ["sujet"],
-        ["s'accorde"]
-      ]
-    },
-    {
-      "id": "radical-terminaison",
+      "id": "nom-groupe-nominal",
       "type": "definition",
-      "titre": "Radical et terminaison",
-      "texte": "Le radical porte le sens du verbe. La terminaison change.",
-      "exemple": "jou-ons : jou est le radical, ons la terminaison.",
+      "titre": "3. Le nom et le groupe nominal",
+      "texte": "Le nom désigne une personne, un animal, une chose ou une idée. Le groupe nominal est construit autour d'un nom.",
+      "exemple": "Le petit chien : le chien est le nom principal.",
       "mots_cles": [
-        ["radical"],
-        ["sens du verbe"],
-        ["terminaison"]
-      ]
-    },
-    {
-      "id": "groupes-verbes",
-      "type": "definition",
-      "titre": "Les 3 groupes de verbes",
-      "texte": "1er groupe : -er. 2e groupe : -ir avec nous -issons. 3e groupe : les autres verbes.",
-      "exemple": "chanter : 1er ; finir : 2e ; prendre : 3e.",
-      "mots_cles": [
-        ["1er groupe", "-er"],
-        ["2e groupe", "-ir", "-issons"],
-        ["3e groupe", "autres verbes"]
-      ]
-    },
-    {
-      "id": "nom-commun",
-      "type": "definition",
-      "titre": "Le nom commun",
-      "texte": "Le nom commun désigne une personne, un animal, un objet ou une idée.",
-      "exemple": "fille, chat, table, joie.",
-      "mots_cles": [
-        ["nom commun"],
-        ["désigne"]
-      ]
-    },
-    {
-      "id": "groupe-nominal",
-      "type": "definition",
-      "titre": "Le groupe nominal minimal",
-      "texte": "Un groupe nominal minimal contient un déterminant et un nom.",
-      "exemple": "Le chat.",
-      "mots_cles": [
-        ["groupe nominal", "GN"],
-        ["déterminant"],
-        ["nom"]
-      ]
-    },
-    {
-      "id": "nom-noyau",
-      "type": "definition",
-      "titre": "Le nom noyau",
-      "texte": "Le nom noyau est le mot principal du groupe nominal.",
-      "exemple": "Le petit chat : chat est le nom noyau.",
-      "mots_cles": [
-        ["nom noyau"],
-        ["mot principal"]
-      ]
-    },
-    {
-      "id": "accord-gn",
-      "type": "regle",
-      "titre": "Les accords dans le groupe nominal",
-      "texte": "Le déterminant et l'adjectif s'accordent avec le nom en genre et en nombre.",
-      "exemple": "Une petite fille. Des petits garçons.",
-      "mots_cles": [
-        ["déterminant"],
-        ["adjectif"],
-        ["nom"],
-        ["genre"],
-        ["nombre"]
+        ["personne", "animal", "chose", "idée"],
+        ["groupe nominal", "nom principal"]
       ]
     },
     {
       "id": "adjectif",
       "type": "definition",
-      "titre": "L'adjectif qualificatif",
-      "texte": "L'adjectif donne une précision sur le nom.",
-      "exemple": "Un chat noir.",
+      "titre": "4. L'adjectif qualificatif",
+      "texte": "L'adjectif donne une précision sur un nom. Il s'accorde avec ce nom.",
+      "exemple": "Un chat noir. Des chattes noires.",
       "mots_cles": [
-        ["adjectif qualificatif"],
-        ["précision"],
-        ["nom"]
+        ["précision sur un nom"],
+        ["accord avec le nom"]
       ]
     },
     {
-      "id": "adjectif-noms-coordonnes",
-      "type": "regle",
-      "titre": "Un adjectif pour plusieurs noms",
-      "texte": "Avec des noms de genres différents, l'adjectif se met au masculin pluriel.",
-      "exemple": "Un garçon et une fille contents.",
-      "mots_cles": [
-        ["plusieurs noms"],
-        ["genres différents"],
-        ["masculin pluriel"]
-      ]
-    },
-    {
-      "id": "degre-adjectif",
+      "id": "degres-adjectif",
       "type": "definition",
-      "titre": "L'intensité de l'adjectif",
-      "texte": "Un adverbe peut rendre l'adjectif plus ou moins fort.",
-      "exemple": "Un peu grand. Très grand.",
+      "titre": "5. Les degrés de l'adjectif",
+      "texte": "Le positif décrit, le comparatif compare et le superlatif exprime le plus haut degré.",
+      "exemple": "Grand ; plus grand que ; le plus grand.",
       "mots_cles": [
-        ["intensité"],
-        ["adverbe"],
-        ["plus ou moins fort"]
+        ["positif", "décrit"],
+        ["comparatif", "compare"],
+        ["superlatif", "le plus"]
       ]
     },
     {
-      "id": "comparatif",
+      "id": "determinanтs",
       "type": "definition",
-      "titre": "Le comparatif",
-      "texte": "Le comparatif sert à comparer deux éléments.",
-      "exemple": "Lina est plus grande que Léa.",
+      "titre": "6. Les déterminants",
+      "texte": "Le déterminant se place généralement devant un nom. Il précise de qui ou de quoi on parle.",
+      "exemple": "Le chat, mon chat, ce chat, trois chats.",
       "mots_cles": [
-        ["comparatif"],
-        ["comparer deux éléments"]
-      ]
-    },
-    {
-      "id": "comparatifs-formes",
-      "type": "formule",
-      "titre": "Les 3 comparatifs",
-      "texte": "Infériorité : moins... que. Égalité : aussi... que. Supériorité : plus... que.",
-      "exemple": "Moins grand que ; aussi grand que ; plus grand que.",
-      "mots_cles": [
-        ["moins... que", "infériorité"],
-        ["aussi... que", "égalité"],
-        ["plus... que", "supériorité"]
-      ]
-    },
-    {
-      "id": "superlatif",
-      "type": "definition",
-      "titre": "Le superlatif",
-      "texte": "Le superlatif indique le plus haut ou le plus bas degré.",
-      "exemple": "Lina est la plus grande de la classe.",
-      "mots_cles": [
-        ["superlatif"],
-        ["degré maximal"]
-      ]
-    },
-    {
-      "id": "superlatifs-formes",
-      "type": "formule",
-      "titre": "Les formes du superlatif",
-      "texte": "Infériorité : le moins. Supériorité : le plus.",
-      "exemple": "La moins grande ; la plus grande.",
-      "mots_cles": [
-        ["le moins", "infériorité"],
-        ["le plus", "supériorité"]
-      ]
-    },
-    {
-      "id": "determinant",
-      "type": "definition",
-      "titre": "Le déterminant",
-      "texte": "Le déterminant se place devant le nom et s'accorde avec lui.",
-      "exemple": "Le chat ; les chats.",
-      "mots_cles": [
-        ["déterminant"],
         ["devant le nom"],
-        ["accord"]
+        ["le", "mon", "ce", "trois"]
       ]
     },
     {
-      "id": "articles",
+      "id": "pronoms",
       "type": "definition",
-      "titre": "Les articles",
-      "texte": "Les articles peuvent être définis, indéfinis ou partitifs.",
-      "exemple": "Le chat ; un chat ; du pain.",
+      "titre": "7. Les pronoms",
+      "texte": "Le pronom remplace souvent un nom ou un groupe nominal.",
+      "exemple": "Lina arrive. Elle arrive. Elle remplace Lina.",
       "mots_cles": [
-        ["articles"],
-        ["définis"],
-        ["indéfinis"],
-        ["partitifs"]
+        ["remplace un nom"],
+        ["pronom personnel"],
+        ["il", "elle", "nous", "ils"]
       ]
     },
     {
-      "id": "articles-definis",
-      "type": "definition",
-      "titre": "Les articles définis",
-      "texte": "Les articles définis sont le, la, l' et les.",
-      "exemple": "Le chien ; l'école ; les chiens.",
-      "mots_cles": [
-        ["le"],
-        ["la"],
-        ["l'"],
-        ["les"]
-      ]
-    },
-    {
-      "id": "articles-contractes",
-      "type": "definition",
-      "titre": "Les articles définis contractés",
-      "texte": "Au = à + le ; aux = à + les ; du = de + le ; des = de + les.",
-      "mots_cles": [
-        ["au"],
-        ["aux"],
-        ["du"],
-        ["des"]
-      ]
-    },
-    {
-      "id": "articles-indefinis-partitifs",
-      "type": "definition",
-      "titre": "Les articles indéfinis et partitifs",
-      "texte": "Indéfinis : un, une, des. Partitifs : du, de la, de l'.",
-      "exemple": "Un gâteau ; du lait.",
-      "mots_cles": [
-        ["un", "une", "des"],
-        ["du", "de la", "de l'"],
-        ["indéfinis"],
-        ["partitifs"]
-      ]
-    },
-    {
-      "id": "determinants-demonstratifs",
-      "type": "definition",
-      "titre": "Les déterminants démonstratifs",
-      "texte": "Ils servent à montrer : ce, cet, cette, ces.",
-      "exemple": "Cette maison ; ces livres.",
-      "mots_cles": [
-        ["démonstratifs"],
-        ["ce"],
-        ["cet"],
-        ["cette"],
-        ["ces"]
-      ]
-    },
-    {
-      "id": "determinants-possessifs",
-      "type": "definition",
-      "titre": "Les déterminants possessifs",
-      "texte": "Ils indiquent à qui appartient quelque chose.",
-      "exemple": "Mon sac ; ta trousse ; leurs livres.",
-      "mots_cles": [
-        ["possessifs"],
-        ["mon"],
-        ["ta"],
-        ["leurs"],
-        ["appartenance"]
-      ]
-    },
-    {
-      "id": "determinants-numeraux",
-      "type": "definition",
-      "titre": "Les déterminants numéraux",
-      "texte": "Les cardinaux donnent un nombre. Les ordinaux donnent un rang.",
-      "exemple": "Deux livres ; le premier livre.",
-      "mots_cles": [
-        ["cardinaux"],
-        ["nombre"],
-        ["ordinaux"],
-        ["rang"]
-      ]
-    },
-    {
-      "id": "determinants-interrogatifs-exclamatifs",
-      "type": "definition",
-      "titre": "Les déterminants interrogatifs et exclamatifs",
-      "texte": "Quel, quelle, quels et quelles accompagnent un nom.",
-      "exemple": "Quelle heure est-il ? Quelle belle journée !",
-      "mots_cles": [
-        ["interrogatifs"],
-        ["exclamatifs"],
-        ["quel"],
-        ["quelle"],
-        ["quels"],
-        ["quelles"]
-      ]
-    },
-    {
-      "id": "determinants-indefinis",
-      "type": "definition",
-      "titre": "Les déterminants indéfinis",
-      "texte": "Ils indiquent une quantité ou une désignation imprécise.",
-      "exemple": "Chaque élève ; plusieurs livres ; aucun bruit.",
-      "mots_cles": [
-        ["indéfinis"],
-        ["quantité"],
-        ["imprécise"],
-        ["chaque"],
-        ["plusieurs"],
-        ["aucun"]
-      ]
-    },
-    {
-      "id": "pronom",
-      "type": "definition",
-      "titre": "Le pronom",
-      "texte": "Le pronom remplace un nom ou un groupe nominal.",
-      "exemple": "Lina arrive. Elle arrive.",
-      "mots_cles": [
-        ["pronom"],
-        ["remplace"],
-        ["nom"],
-        ["groupe nominal"]
-      ]
-    },
-    {
-      "id": "accord-pronom",
+      "id": "reconnaitre-classes",
       "type": "regle",
-      "titre": "L'accord du pronom",
-      "texte": "Le pronom s'accorde généralement en genre et en nombre avec ce qu'il remplace.",
-      "exemple": "Le garçon arrive : il arrive.",
+      "titre": "8. Reconnaître la classe d'un mot",
+      "texte": "Pour identifier un mot, observe son rôle dans la phrase et les mots qui l'entourent.",
+      "exemple": "Dans « le joli jardin », le est un déterminant, joli un adjectif et jardin un nom.",
       "mots_cles": [
-        ["pronom"],
-        ["genre"],
-        ["nombre"],
-        ["mot remplacé"]
-      ]
-    },
-    {
-      "id": "pronoms-personnels",
-      "type": "definition",
-      "titre": "Les pronoms personnels",
-      "texte": "Ils désignent les personnes qui parlent, à qui l'on parle ou dont on parle.",
-      "exemple": "Je, tu, il, elle, nous, vous, ils, elles.",
-      "mots_cles": [
-        ["personnels"],
-        ["je"],
-        ["tu"],
-        ["il"],
-        ["elle"],
-        ["nous"],
-        ["vous"]
-      ]
-    },
-    {
-      "id": "pronoms-adverbiaux",
-      "type": "definition",
-      "titre": "Les pronoms adverbiaux",
-      "texte": "Les deux pronoms adverbiaux sont y et en.",
-      "exemple": "J'y vais. J'en veux.",
-      "mots_cles": [
-        ["adverbiaux"],
-        ["y"],
-        ["en"]
-      ]
-    },
-    {
-      "id": "pronoms-possessifs",
-      "type": "definition",
-      "titre": "Les pronoms possessifs",
-      "texte": "Ils remplacent un nom en indiquant à qui il appartient.",
-      "exemple": "Mon livre est ici ; le tien est là.",
-      "mots_cles": [
-        ["possessifs"],
-        ["le mien"],
-        ["la mienne"],
-        ["le tien"],
-        ["le sien"]
-      ]
-    },
-    {
-      "id": "pronoms-demonstratifs",
-      "type": "definition",
-      "titre": "Les pronoms démonstratifs",
-      "texte": "Ils montrent ou désignent une personne ou une chose.",
-      "exemple": "Celui-ci ; celle-là ; ceci ; cela.",
-      "mots_cles": [
-        ["démonstratifs"],
-        ["celui"],
-        ["celle"],
-        ["ceci"],
-        ["cela"]
-      ]
-    },
-    {
-      "id": "pronoms-relatifs",
-      "type": "definition",
-      "titre": "Les pronoms relatifs",
-      "texte": "Ils relient deux parties d'une phrase.",
-      "exemple": "Qui, que, quoi, dont, où.",
-      "mots_cles": [
-        ["relatifs"],
-        ["qui"],
-        ["que"],
-        ["dont"],
-        ["où"]
-      ]
-    },
-    {
-      "id": "pronoms-relatifs-composes",
-      "type": "definition",
-      "titre": "Les pronoms relatifs composés",
-      "texte": "Ils sont formés de plusieurs éléments.",
-      "exemple": "Lequel ; laquelle ; auxquels.",
-      "mots_cles": [
-        ["relatifs composés"],
-        ["lequel"],
-        ["laquelle"],
-        ["auxquels"]
-      ]
-    },
-    {
-      "id": "pronoms-interrogatifs",
-      "type": "definition",
-      "titre": "Les pronoms interrogatifs",
-      "texte": "Ils servent à poser une question.",
-      "exemple": "Qui vient ? Lequel choisis-tu ?",
-      "mots_cles": [
-        ["interrogatifs"],
-        ["question"],
-        ["qui"],
-        ["lequel"]
-      ]
-    },
-    {
-      "id": "pronoms-indefinis",
-      "type": "definition",
-      "titre": "Les pronoms indéfinis",
-      "texte": "Ils désignent une personne ou une chose sans précision.",
-      "exemple": "Quelqu'un arrive. Personne ne répond.",
-      "mots_cles": [
-        ["indéfinis"],
-        ["sans précision"],
-        ["quelqu'un"],
-        ["personne"]
-      ]
-    },
-    {
-      "id": "pronoms-numeraux",
-      "type": "definition",
-      "titre": "Les pronoms numéraux",
-      "texte": "Ils indiquent un nombre ou un rang en remplaçant un nom.",
-      "exemple": "Trois sont arrivés. Le premier a gagné.",
-      "mots_cles": [
-        ["numéraux"],
-        ["nombre"],
-        ["rang"]
+        ["rôle dans la phrase"],
+        ["mots autour"],
+        ["déterminant", "adjectif", "nom"]
       ]
     }
   ],
   "alertes": [
-    "La fiche résume les notions du récapitulatif fourni ; les listes complètes de toutes les formes sont condensées pour faciliter la mémorisation.",
-    "Certains mots comme leur, des, du ou que peuvent appartenir à des classes différentes selon leur emploi dans la phrase.",
-    "Le test avec ne... pas est utile pour repérer un verbe, mais la négation peut parfois nécessiter une adaptation de la phrase."
+    "Version volontairement limitée aux 8 notions prioritaires pour une élève de 5e.",
+    "Les différentes sous-catégories de déterminants et de pronoms ne sont pas à mémoriser dans cette première étape.",
+    "Les exemples servent à comprendre et reconnaître les notions, pas à être appris par cœur.",
+    "Objectif : comprendre les notions essentielles et savoir les identifier dans une phrase."
   ]
 }

@@ -511,3 +511,8 @@
     }
   ],
   "alertes": [
+    "La fiche résume les notions du récapitulatif fourni ; les listes complètes de toutes les formes sont condensées pour faciliter la mémorisation.",
+    "Certains mots comme leur, des, du ou que peuvent appartenir à des classes différentes selon leur emploi dans la phrase.",
+    "Le test avec ne... pas est utile pour repérer un verbe, mais la négation peut parfois nécessiter une adaptation de la phrase."
+  ]
+}

@@ -1,59 +1,27 @@
 {
   "pour": "anfal",
   "matiere": "maths",
-  "titre": "Géométrie : triangles et droites remarquables",
+  "titre": "Géométrie : triangles, les essentiels",
   "items": [
     {
-      "id": "definition-mediatrice",
+      "id": "mediatrice",
       "type": "definition",
-      "titre": "La médiatrice",
-      "texte": "La médiatrice est une droite perpendiculaire à un segment et qui passe par son milieu.",
-      "exemple": "Elle coupe le segment en son milieu à angle droit.",
-      "mots_cles": [
-        ["médiatrice"],
-        ["perpendiculaire"],
-        ["milieu", "milieu du segment"]
-      ]
-    },
-    {
-      "id": "propriete-mediatrice",
-      "type": "regle",
-      "titre": "La propriété de la médiatrice",
-      "texte": "Un point de la médiatrice est à la même distance des deux extrémités du segment.",
+      "titre": "1. La médiatrice",
+      "texte": "La médiatrice coupe un segment en son milieu à angle droit.",
       "exemple": "Si M est sur la médiatrice de [AB], alors MA = MB.",
       "mots_cles": [
-        ["même distance", "équidistant", "équidistants"],
-        ["MA = MB"]
+        ["médiatrice"],
+        ["milieu"],
+        ["perpendiculaire"],
+        ["MA = MB", "même distance"]
       ]
     },
     {
-      "id": "reciproque-mediatrice",
-      "type": "regle",
-      "titre": "La réciproque de la médiatrice",
-      "texte": "Si un point est à la même distance des deux extrémités d'un segment, il appartient à sa médiatrice.",
-      "exemple": "Si MA = MB, alors M appartient à la médiatrice de [AB].",
-      "mots_cles": [
-        ["même distance", "équidistant", "équidistants"],
-        ["appartient à la médiatrice"]
-      ]
-    },
-    {
-      "id": "mediatrices-triangle",
-      "type": "regle",
-      "titre": "Les médiatrices d'un triangle",
-      "texte": "Les trois médiatrices d'un triangle se coupent en un même point : le centre du cercle circonscrit.",
-      "mots_cles": [
-        ["trois médiatrices"],
-        ["même point", "concourantes"],
-        ["centre du cercle circonscrit"]
-      ]
-    },
-    {
-      "id": "definition-mediane",
+      "id": "mediane",
       "type": "definition",
-      "titre": "La médiane",
-      "texte": "Une médiane passe par un sommet et par le milieu du côté opposé.",
-      "exemple": "Elle relie un sommet au milieu du côté d'en face.",
+      "titre": "2. La médiane",
+      "texte": "Une médiane relie un sommet au milieu du côté opposé.",
+      "exemple": "Elle part d'un sommet et rejoint le milieu du côté d'en face.",
       "mots_cles": [
         ["médiane"],
         ["sommet"],
@@ -61,21 +29,11 @@
       ]
     },
     {
-      "id": "medianes-triangle",
-      "type": "regle",
-      "titre": "Les médianes d'un triangle",
-      "texte": "Les trois médianes d'un triangle se coupent en un même point.",
-      "mots_cles": [
-        ["trois médianes"],
-        ["se coupent", "concourantes"],
-        ["même point"]
-      ]
-    },
-    {
-      "id": "definition-hauteur",
+      "id": "hauteur",
       "type": "definition",
-      "titre": "La hauteur",
+      "titre": "3. La hauteur",
       "texte": "Une hauteur passe par un sommet et est perpendiculaire au côté opposé.",
+      "exemple": "Elle forme un angle droit avec le côté opposé, ou son prolongement.",
       "mots_cles": [
         ["hauteur"],
         ["sommet"],
@@ -84,44 +42,11 @@
       ]
     },
     {
-      "id": "vocabulaire-hauteur",
-      "type": "definition",
-      "titre": "La base et le pied de la hauteur",
-      "texte": "La base est le côté associé à la hauteur. Le pied est le point où la hauteur coupe la base.",
-      "mots_cles": [
-        ["base relative", "base"],
-        ["pied de la hauteur", "pied"],
-        ["point d'intersection"]
-      ]
-    },
-    {
-      "id": "hauteur-exterieure",
-      "type": "regle",
-      "titre": "Les hauteurs à l'extérieur",
-      "texte": "Dans un triangle avec un angle obtus, une hauteur peut être à l'extérieur du triangle.",
-      "mots_cles": [
-        ["angle obtus"],
-        ["hauteur"],
-        ["extérieur du triangle"]
-      ]
-    },
-    {
-      "id": "hauteurs-triangle",
-      "type": "regle",
-      "titre": "Les hauteurs d'un triangle",
-      "texte": "Les trois hauteurs d'un triangle se coupent en un même point.",
-      "mots_cles": [
-        ["trois hauteurs"],
-        ["se coupent", "concourantes"],
-        ["même point"]
-      ]
-    },
-    {
       "id": "inegalite-triangulaire",
       "type": "regle",
-      "titre": "L'inégalité triangulaire",
-      "texte": "Dans un triangle, le plus grand côté est plus court que la somme des deux autres côtés.",
-      "exemple": "3 cm, 4 cm et 5 cm : le triangle est constructible car 5 < 3 + 4.",
+      "titre": "4. Peut-on construire un triangle ?",
+      "texte": "Le plus grand côté doit être strictement plus court que la somme des deux autres.",
+      "exemple": "3, 4 et 5 : possible car 5 < 3 + 4. Avec 2, 3 et 6 : impossible car 6 > 2 + 3.",
       "mots_cles": [
         ["inégalité triangulaire"],
         ["plus grand côté"],
@@ -130,82 +55,36 @@
       ]
     },
     {
-      "id": "triangle-impossible",
-      "type": "regle",
-      "titre": "Quand le triangle est impossible",
-      "texte": "Si le plus grand côté est plus long que la somme des deux autres, le triangle est impossible à construire.",
-      "exemple": "2 cm, 3 cm et 6 cm : impossible car 6 > 2 + 3.",
-      "mots_cles": [
-        ["impossible à construire"],
-        ["plus grand côté"],
-        ["plus long que la somme"]
-      ]
-    },
-    {
-      "id": "triangle-aplati",
-      "type": "regle",
-      "titre": "Le triangle aplati",
-      "texte": "Si le plus grand côté est égal à la somme des deux autres, les trois points sont alignés : le triangle est aplati.",
-      "exemple": "2 cm, 3 cm et 5 cm : 5 = 2 + 3.",
-      "mots_cles": [
-        ["triangle aplati"],
-        ["égal à la somme"],
-        ["points alignés"]
-      ]
-    },
-    {
       "id": "aire-triangle",
       "type": "formule",
-      "titre": "L'aire d'un triangle",
+      "titre": "5. Calculer l'aire d'un triangle",
       "texte": "Aire = base × hauteur ÷ 2.",
-      "exemple": "Base = 6 cm et hauteur = 4 cm : aire = 6 × 4 ÷ 2 = 12 cm².",
+      "exemple": "Base de 6 cm et hauteur de 4 cm : aire = 6 × 4 ÷ 2 = 12 cm².",
       "mots_cles": [
-        ["aire du triangle"],
         ["base × hauteur ÷ 2"],
-        ["cm²", "m²"]
-      ]
-    },
-    {
-      "id": "unites-aire",
-      "type": "regle",
-      "titre": "L'unité d'une aire",
-      "texte": "Une aire s'exprime en unités carrées, par exemple en cm² ou en m².",
-      "mots_cles": [
         ["aire"],
-        ["cm²"],
-        ["m²"],
-        ["unités carrées"]
+        ["cm²", "unité carrée"]
       ]
     },
     {
-      "id": "redaction-aire",
+      "id": "choisir-base-hauteur",
       "type": "regle",
-      "titre": "Les étapes pour calculer une aire",
-      "texte": "1. Écrire la formule. 2. Remplacer par les longueurs. 3. Calculer. 4. Écrire l'unité.",
-      "exemple": "A = (6 × 4) ÷ 2 = 12 cm².",
+      "titre": "6. Bien choisir la hauteur",
+      "texte": "La hauteur doit être perpendiculaire à la base choisie.",
+      "exemple": "Pour une base horizontale, la hauteur forme un angle droit avec elle.",
       "mots_cles": [
-        ["formule"],
-        ["remplacer les longueurs"],
-        ["calculer"],
-        ["unité"]
-      ]
-    },
-    {
-      "id": "aire-triangle-rectangle",
-      "type": "formule",
-      "titre": "L'aire d'un triangle rectangle",
-      "texte": "Aire = côté 1 × côté 2 ÷ 2, en utilisant les deux côtés de l'angle droit.",
-      "exemple": "Côtés de 3 cm et 4 cm : aire = 3 × 4 ÷ 2 = 6 cm².",
-      "mots_cles": [
-        ["triangle rectangle"],
-        ["deux côtés de l'angle droit"],
-        ["produit ÷ 2"],
-        ["cm²"]
+        ["hauteur"],
+        ["base"],
+        ["perpendiculaire"],
+        ["angle droit"]
       ]
     }
   ],
   "alertes": [
-    "Les exemples numériques sont des exemples pédagogiques ajoutés pour faciliter la mémorisation.",
-    "Pour calculer une aire, la hauteur doit être associée à la base choisie et lui être perpendiculaire."
+    "Version essentielle : 6 notions à mémoriser en priorité.",
+    "Les exemples servent à comprendre et à s'entraîner ; ils ne sont pas à apprendre par cœur.",
+    "Les propriétés plus détaillées des médiatrices, médianes et hauteurs sont laissées de côté dans cette première étape.",
+    "Le triangle aplati correspond au cas où le plus grand côté est égal à la somme des deux autres.",
+    "Pour l'aire, ne pas oublier de diviser par 2 et d'écrire une unité carrée, comme cm²."
   ]
 }

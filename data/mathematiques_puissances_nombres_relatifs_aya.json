@@ -1,0 +1,115 @@
+{
+  "pour": "aya",
+  "matiere": "mathematiques",
+  "titre": "Les puissances d'un nombre relatif : l'essentiel",
+  "items": [
+    {
+      "id": "definition-puissance",
+      "type": "definition",
+      "titre": "1. Qu'est-ce qu'une puissance ?",
+      "texte": "Une puissance aⁿ représente un produit de n facteurs tous égaux à a.",
+      "exemple": "4⁵ = 4 × 4 × 4 × 4 × 4.",
+      "mots_cles": [
+        ["puissance", "aⁿ"],
+        ["n facteurs"],
+        ["tous égaux à a"]
+      ]
+    },
+    {
+      "id": "exposant-negatif",
+      "type": "regle",
+      "titre": "2. Que signifie un exposant négatif ?",
+      "texte": "Pour a différent de zéro, a⁻ⁿ est l'inverse de aⁿ : a⁻ⁿ = 1/aⁿ.",
+      "exemple": "6⁻³ = 1/6³ = 1/216.",
+      "mots_cles": [
+        ["exposant négatif"],
+        ["inverse"],
+        ["a⁻ⁿ = 1/aⁿ"],
+        ["a différent de zéro"]
+      ]
+    },
+    {
+      "id": "puissance-zero-un",
+      "type": "regle",
+      "titre": "3. Les puissances zéro et un",
+      "texte": "Pour tout nombre a non nul : a⁰ = 1. Pour tout nombre a : a¹ = a.",
+      "exemple": "15⁰ = 1 et (-3)¹ = -3.",
+      "mots_cles": [
+        ["a⁰ = 1"],
+        ["a¹ = a"],
+        ["puissance zéro"],
+        ["puissance un"]
+      ]
+    },
+    {
+      "id": "carre-cube",
+      "type": "definition",
+      "titre": "4. Carré et cube",
+      "texte": "Le carré correspond à deux facteurs égaux : a². Le cube correspond à trois facteurs égaux : a³.",
+      "exemple": "7² = 49 et (-2)³ = -8.",
+      "mots_cles": [
+        ["a²", "au carré"],
+        ["deux facteurs"],
+        ["a³", "au cube"],
+        ["trois facteurs"]
+      ]
+    },
+    {
+      "id": "inverse",
+      "type": "definition",
+      "titre": "5. L'inverse d'un nombre",
+      "texte": "Pour a non nul, son inverse est 1/a, ce qui se note aussi a⁻¹.",
+      "exemple": "2⁻¹ = 1/2 et (-3)⁻¹ = -1/3.",
+      "mots_cles": [
+        ["inverse"],
+        ["a⁻¹"],
+        ["1/a"],
+        ["a différent de zéro"]
+      ]
+    },
+    {
+      "id": "puissances-10-positives",
+      "type": "regle",
+      "titre": "6. Les puissances positives de 10",
+      "texte": "Pour un exposant positif, 10ⁿ s'écrit avec un 1 suivi de n zéros.",
+      "exemple": "10² = 100 ; 10³ = 1 000 ; 10⁶ = 1 000 000.",
+      "mots_cles": [
+        ["10ⁿ"],
+        ["exposant positif"],
+        ["n zéros après le 1"]
+      ]
+    },
+    {
+      "id": "puissances-10-negatives",
+      "type": "regle",
+      "titre": "7. Les puissances négatives de 10",
+      "texte": "10⁻ⁿ est l'inverse de 10ⁿ. Le chiffre 1 se trouve à la n-ième position après la virgule.",
+      "exemple": "10⁻¹ = 0,1 ; 10⁻² = 0,01 ; 10⁻³ = 0,001.",
+      "mots_cles": [
+        ["10⁻ⁿ = 1/10ⁿ"],
+        ["exposant négatif"],
+        ["n-ième position après la virgule"]
+      ]
+    },
+    {
+      "id": "condition-base-non-nulle",
+      "type": "attention",
+      "titre": "8. Attention : la base ne doit pas être nulle",
+      "texte": "Les puissances d'exposant zéro et négatif nécessitent une base différente de zéro.",
+      "exemple": "0⁰ et 0⁻² ne sont pas définis dans ce cours.",
+      "mots_cles": [
+        ["base non nulle"],
+        ["a différent de zéro"],
+        ["exposant zéro"],
+        ["exposant négatif"]
+      ]
+    }
+  ],
+  "alertes": [
+    "Fiche limitée à 8 notions prioritaires.",
+    "Savoir lire une puissance et reconnaître le nombre de facteurs.",
+    "Bien distinguer exposant positif, nul et négatif.",
+    "Retenir les écritures des puissances de 10 positives et négatives.",
+    "Les exemples servent à comprendre et à s'entraîner : les définitions et les règles sont prioritaires."
+  ]
+}

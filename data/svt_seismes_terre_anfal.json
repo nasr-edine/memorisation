@@ -1,0 +1,112 @@
+{
+  "pour": "anfal",
+  "matiere": "svt",
+  "titre": "Séismes et structure interne de la Terre : l'essentiel",
+  "items": [
+    {
+      "id": "origine-seisme",
+      "type": "definition",
+      "titre": "1. Comment se forme un séisme ?",
+      "texte": "Un séisme est une secousse provoquée par la rupture brutale de roches en profondeur.",
+      "exemple": "Les forces tectoniques déforment les roches jusqu'à leur rupture.",
+      "mots_cles": [
+        ["séisme", "secousse"],
+        ["rupture brutale"],
+        ["roches", "profondeur"]
+      ]
+    },
+    {
+      "id": "foyer-epicentre-faille",
+      "type": "definition",
+      "titre": "2. Foyer, épicentre et faille",
+      "texte": "Le foyer est le point de rupture en profondeur. L'épicentre est le point situé à sa verticale en surface. La faille est la fracture où les roches se déplacent.",
+      "exemple": "La rupture commence au foyer, puis les ondes se propagent.",
+      "mots_cles": [
+        ["foyer", "profondeur"],
+        ["épicentre", "surface", "verticale du foyer"],
+        ["faille", "fracture", "déplacement des roches"]
+      ]
+    },
+    {
+      "id": "ondes-sismiques",
+      "type": "definition",
+      "titre": "3. Les ondes sismiques",
+      "texte": "Les ondes sismiques sont les vibrations qui se propagent à partir du foyer dans toutes les directions.",
+      "exemple": "Elles traversent les roches et provoquent des secousses à la surface.",
+      "mots_cles": [
+        ["ondes sismiques"],
+        ["vibrations"],
+        ["propagation", "toutes les directions"]
+      ]
+    },
+    {
+      "id": "magnitude-intensite",
+      "type": "regle",
+      "titre": "4. Magnitude et intensité : ne pas confondre",
+      "texte": "La magnitude mesure l'énergie libérée par le séisme. L'intensité décrit les effets et les dégâts observés en un lieu.",
+      "exemple": "Un même séisme a une magnitude donnée, mais ses effets varient selon les lieux.",
+      "mots_cles": [
+        ["magnitude", "énergie libérée"],
+        ["intensité", "effets", "dégâts"],
+        ["ne pas confondre"]
+      ]
+    },
+    {
+      "id": "sismographe-sismogramme",
+      "type": "definition",
+      "titre": "5. Comment enregistre-t-on un séisme ?",
+      "texte": "Le sismographe enregistre les vibrations du sol. Le sismogramme est le tracé obtenu.",
+      "exemple": "Les scientifiques étudient le tracé pour analyser les vibrations.",
+      "mots_cles": [
+        ["sismographe", "appareil"],
+        ["sismogramme", "tracé"],
+        ["vibrations du sol"]
+      ]
+    },
+    {
+      "id": "couches-terre",
+      "type": "definition",
+      "titre": "6. Les principales couches de la Terre",
+      "texte": "La Terre comprend la croûte, le manteau et le noyau. Le noyau externe est liquide et le noyau interne est solide.",
+      "exemple": "Les ondes sismiques aident les scientifiques à étudier l'intérieur de la Terre.",
+      "mots_cles": [
+        ["croûte"],
+        ["manteau"],
+        ["noyau externe", "liquide"],
+        ["noyau interne", "solide"]
+      ]
+    },
+    {
+      "id": "plaques-lithosphere",
+      "type": "definition",
+      "titre": "7. Les plaques tectoniques",
+      "texte": "Une plaque tectonique comprend la croûte et le manteau lithosphérique rigide. Elle se déplace sur le manteau asthénosphérique plus malléable.",
+      "exemple": "La lithosphère est découpée en plusieurs plaques.",
+      "mots_cles": [
+        ["plaque tectonique"],
+        ["croûte", "manteau lithosphérique"],
+        ["rigide"],
+        ["asthénosphère", "malléable"]
+      ]
+    },
+    {
+      "id": "risque-sismique",
+      "type": "definition",
+      "titre": "8. De quoi dépend le risque sismique ?",
+      "texte": "Le risque dépend notamment de la magnitude, du nombre d'habitants exposés et de la résistance des bâtiments.",
+      "exemple": "Un séisme puissant dans une zone très peuplée avec des bâtiments fragiles peut provoquer de nombreux dégâts.",
+      "mots_cles": [
+        ["magnitude"],
+        ["population exposée"],
+        ["vulnérabilité des bâtiments"],
+        ["risque sismique"]
+      ]
+    }
+  ],
+  "alertes": [
+    "Fiche volontairement limitée à 8 notions prioritaires.",
+    "Les exemples servent à comprendre et ne sont pas à apprendre par cœur.",
+    "Priorité pour le contrôle : expliquer l'origine d'un séisme, distinguer foyer et épicentre, différencier magnitude et intensité, connaître les couches terrestres et expliquer le risque sismique.",
+    "Les tableaux détaillés de vitesses des ondes et les études de cas par pays sont à revoir seulement si le professeur les demande explicitement."
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "pour": "aya",
+  "matiere": "histoire_geo",
+  "titre": "Les aires urbaines et la métropolisation : l'essentiel",
+  "items": [
+    {
+      "id": "aire-urbaine",
+      "type": "definition",
+      "titre": "1. Qu'est-ce qu'une aire urbaine ?",
+      "texte": "Une aire urbaine comprend un pôle urbain et une couronne périurbaine.",
+      "exemple": "Elle regroupe la ville-centre, sa banlieue et les communes environnantes.",
+      "mots_cles": [
+        ["aire urbaine"],
+        ["pôle urbain"],
+        ["couronne périurbaine"]
+      ]
+    },
+    {
+      "id": "pole-urbain",
+      "type": "definition",
+      "titre": "2. Qu'est-ce qu'un pôle urbain ?",
+      "texte": "Le pôle urbain est composé de la ville-centre et de sa banlieue.",
+      "exemple": "La ville-centre est entourée par une banlieue urbanisée.",
+      "mots_cles": [
+        ["pôle urbain"],
+        ["ville-centre"],
+        ["banlieue"]
+      ]
+    },
+    {
+      "id": "couronne-periurbaine",
+      "type": "definition",
+      "titre": "3. Qu'est-ce que la couronne périurbaine ?",
+      "texte": "C'est l'espace autour du pôle urbain, composé de communes rurales progressivement urbanisées.",
+      "exemple": "Des maisons et des lotissements remplacent progressivement des espaces agricoles.",
+      "mots_cles": [
+        ["couronne périurbaine"],
+        ["communes rurales"],
+        ["urbanisation"]
+      ]
+    },
+    {
+      "id": "etalement-urbain",
+      "type": "definition",
+      "titre": "4. Qu'est-ce que l'étalement urbain ?",
+      "texte": "C'est l'extension des villes vers les espaces ruraux et le long des axes de transport.",
+      "exemple": "De nouveaux lotissements sont construits à la périphérie des villes.",
+      "mots_cles": [
+        ["étalement urbain"],
+        ["extension des villes"],
+        ["espaces ruraux"]
+      ]
+    },
+    {
+      "id": "migrations-pendulaires",
+      "type": "definition",
+      "titre": "5. Que sont les migrations pendulaires ?",
+      "texte": "Ce sont les déplacements quotidiens entre le domicile et le lieu de travail.",
+      "exemple": "Un habitant de la banlieue prend le train chaque matin pour travailler à Paris.",
+      "mots_cles": [
+        ["migrations pendulaires"],
+        ["déplacements quotidiens"],
+        ["domicile-travail"]
+      ]
+    },
+    {
+      "id": "metropolisation",
+      "type": "definition",
+      "titre": "6. Qu'est-ce que la métropolisation ?",
+      "texte": "C'est la concentration des habitants et des fonctions de commandement dans les grandes villes.",
+      "exemple": "Paris concentre des activités économiques, politiques et culturelles importantes.",
+      "mots_cles": [
+        ["métropolisation"],
+        ["concentration"],
+        ["grandes villes"],
+        ["fonctions de commandement"]
+      ]
+    },
+    {
+      "id": "paris-metropole",
+      "type": "definition",
+      "titre": "7. Pourquoi Paris est-elle une métropole mondiale ?",
+      "texte": "Paris exerce un rayonnement économique, politique, culturel et éducatif à l'échelle mondiale.",
+      "exemple": "La Défense, l'Élysée, le Louvre et les universités illustrent ses fonctions de commandement.",
+      "mots_cles": [
+        ["Paris"],
+        ["métropole mondiale"],
+        ["économique"],
+        ["politique"],
+        ["culturel et éducatif"]
+      ]
+    },
+    {
+      "id": "causes-etalement",
+      "type": "definition",
+      "titre": "8. Pourquoi les villes s'étalent-elles ?",
+      "texte": "Les habitants recherchent des logements moins chers, davantage d'espace et une meilleure qualité de vie.",
+      "exemple": "Certains ménages quittent le centre-ville pour une maison avec jardin en périphérie.",
+      "mots_cles": [
+        ["logements moins chers"],
+        ["maison avec jardin"],
+        ["qualité de vie"],
+        ["voiture"]
+      ]
+    },
+    {
+      "id": "consequences-urbanisation",
+      "type": "definition",
+      "titre": "9. Quelles sont les conséquences de l'étalement urbain ?",
+      "texte": "Il provoque davantage de déplacements, des embouteillages, de la pollution et la bétonisation des sols.",
+      "exemple": "Les espaces agricoles et naturels sont progressivement remplacés par des constructions.",
+      "mots_cles": [
+        ["embouteillages"],
+        ["pollution"],
+        ["bétonisation"],
+        ["espaces naturels"]
+      ]
+    },
+    {
+      "id": "chiffres-cles",
+      "type": "reperes",
+      "titre": "10. Quels chiffres faut-il retenir ?",
+      "texte": "85 % de la population française vit dans une aire urbaine. L'Île-de-France compte 13 171 000 habitants en 2021. Le seuil indiqué pour la couronne périurbaine est de 40 % des actifs.",
+      "exemple": "Ces chiffres permettent de montrer l'importance des villes et de leur influence.",
+      "mots_cles": [
+        ["85 %", "population française"],
+        ["13 171 000", "habitants en Île-de-France en 2021"],
+        ["40 %", "seuil des actifs"]
+      ]
+    }
+  ],
+  "alertes": [
+    "Fiche limitée à 10 notions prioritaires.",
+    "À savoir absolument : définir aire urbaine, pôle urbain, couronne périurbaine et métropolisation.",
+    "Savoir expliquer les causes et les conséquences de l'étalement urbain.",
+    "Connaître les trois grandes fonctions de commandement de Paris : économique, politique et culturelle.",
+    "Savoir refaire le schéma d'une aire urbaine : ville-centre, banlieue, couronne périurbaine et migrations pendulaires.",
+    "Les autres définitions du cours (gentrification, héliotropisme, mitage et développement durable) restent à revoir si elles sont demandées par le professeur."
+  ]
+}

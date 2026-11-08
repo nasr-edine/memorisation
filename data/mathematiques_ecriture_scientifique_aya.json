@@ -1,0 +1,87 @@
+{
+  "pour": "aya",
+  "matiere": "mathematiques",
+  "titre": "L'écriture scientifique : l'essentiel",
+  "items": [
+    {
+      "id": "definition-ecriture-scientifique",
+      "type": "definition",
+      "titre": "1. Qu'est-ce que l'écriture scientifique ?",
+      "texte": "C'est une écriture de la forme a × 10ⁿ, où a est un nombre décimal et n un entier relatif.",
+      "exemple": "7,15 × 10³ est une écriture scientifique.",
+      "mots_cles": [
+        ["a × 10ⁿ"],
+        ["a", "nombre décimal"],
+        ["n", "entier relatif"]
+      ]
+    },
+    {
+      "id": "condition-mantisse",
+      "type": "regle",
+      "titre": "2. Quelle condition doit respecter a ?",
+      "texte": "Le nombre a doit être supérieur ou égal à 1 et strictement inférieur à 10.",
+      "exemple": "7,15 convient car 1 ≤ 7,15 < 10.",
+      "mots_cles": [
+        ["1 ≤ a < 10"],
+        ["a supérieur ou égal à 1"],
+        ["a strictement inférieur à 10"]
+      ]
+    },
+    {
+      "id": "reconnaitre-ecriture-scientifique",
+      "type": "attention",
+      "titre": "3. Comment reconnaître une écriture scientifique ?",
+      "texte": "Il faut vérifier deux conditions : une puissance de 10 et un nombre a compris entre 1 inclus et 10 exclu.",
+      "exemple": "0,33 × 10⁶ est incorrect car 0,33 < 1. 13 × 7² est incorrect car la puissance n'est pas une puissance de 10.",
+      "mots_cles": [
+        ["puissance de 10"],
+        ["1 ≤ a < 10"],
+        ["vérifier les deux conditions"]
+      ]
+    },
+    {
+      "id": "conversion-grand-nombre",
+      "type": "methode",
+      "titre": "4. Comment écrire un grand nombre en notation scientifique ?",
+      "texte": "On déplace la virgule pour obtenir un nombre compris entre 1 et 10. L'exposant positif indique le nombre de déplacements vers la gauche.",
+      "exemple": "1 785 000 000 = 1,785 × 10⁹.",
+      "mots_cles": [
+        ["virgule vers la gauche"],
+        ["nombre entre 1 et 10"],
+        ["exposant positif"]
+      ]
+    },
+    {
+      "id": "conversion-petit-nombre",
+      "type": "methode",
+      "titre": "5. Comment écrire un très petit nombre ?",
+      "texte": "On déplace la virgule vers la droite pour obtenir un nombre compris entre 1 et 10. L'exposant est négatif.",
+      "exemple": "0,000028 = 2,8 × 10⁻⁵.",
+      "mots_cles": [
+        ["virgule vers la droite"],
+        ["nombre entre 1 et 10"],
+        ["exposant négatif"]
+      ]
+    },
+    {
+      "id": "puissance-dix-deja-presente",
+      "type": "methode",
+      "titre": "6. Comment transformer une expression avec une puissance de 10 ?",
+      "texte": "On met d'abord le nombre décimal entre 1 et 10, puis on additionne les exposants des puissances de 10.",
+      "exemple": "158,2 × 10⁵ = 1,582 × 10² × 10⁵ = 1,582 × 10⁷.",
+      "mots_cles": [
+        ["mettre a entre 1 et 10"],
+        ["additionner les exposants"],
+        ["10² × 10⁵ = 10⁷"]
+      ]
+    }
+  ],
+  "alertes": [
+    "Fiche limitée à 6 notions prioritaires.",
+    "La condition fondamentale est toujours : 1 ≤ a < 10.",
+    "Un grand nombre donne généralement un exposant positif.",
+    "Un très petit nombre donne généralement un exposant négatif.",
+    "Pour une expression contenant déjà une puissance de 10, ne pas oublier d'additionner les exposants.",
+    "Savoir justifier pourquoi une écriture est scientifique ou ne l'est pas."
+  ]
+}

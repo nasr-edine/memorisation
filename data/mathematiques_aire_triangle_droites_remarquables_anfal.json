@@ -1,0 +1,102 @@
+{
+  "pour": "anfal",
+  "matiere": "mathematiques",
+  "titre": "Aire du triangle et droites remarquables : l'essentiel",
+  "items": [
+    {
+      "id": "definition-hauteur",
+      "type": "definition",
+      "titre": "1. Qu'est-ce qu'une hauteur ?",
+      "texte": "Une hauteur est une droite qui passe par un sommet et qui est perpendiculaire au côté opposé.",
+      "exemple": "Dans un triangle ABC, la hauteur issue de A est perpendiculaire à (BC).",
+      "mots_cles": [
+        ["hauteur"],
+        ["sommet"],
+        ["perpendiculaire"],
+        ["côté opposé"]
+      ]
+    },
+    {
+      "id": "pied-hauteur",
+      "type": "definition",
+      "titre": "2. Qu'est-ce que le pied de la hauteur ?",
+      "texte": "C'est le point où la hauteur rencontre perpendiculairement le côté opposé.",
+      "exemple": "Si H est le pied de la hauteur issue de A, alors AH est perpendiculaire à BC.",
+      "mots_cles": [
+        ["pied de la hauteur"],
+        ["point d'intersection"],
+        ["perpendiculaire"]
+      ]
+    },
+    {
+      "id": "proprietes-hauteurs",
+      "type": "propriete",
+      "titre": "3. Quelles sont les propriétés des hauteurs ?",
+      "texte": "Une hauteur peut être située à l'extérieur du triangle. Les trois hauteurs se coupent en un même point.",
+      "exemple": "Dans un triangle obtusangle, certaines hauteurs sont à l'extérieur du triangle.",
+      "mots_cles": [
+        ["extérieur du triangle"],
+        ["trois hauteurs"],
+        ["concourantes"],
+        ["même point"]
+      ]
+    },
+    {
+      "id": "formule-aire-triangle",
+      "type": "formule",
+      "titre": "4. Quelle est la formule de l'aire d'un triangle ?",
+      "texte": "Aire = (base × hauteur correspondante) ÷ 2.",
+      "exemple": "Avec une base de 6 cm et une hauteur de 4 cm : A = (6 × 4) ÷ 2 = 12 cm².",
+      "mots_cles": [
+        ["base × hauteur"],
+        ["divisé par 2"],
+        ["A = (b × h) / 2"]
+      ]
+    },
+    {
+      "id": "aire-triangle-rectangle",
+      "type": "formule",
+      "titre": "5. Comment calculer l'aire d'un triangle rectangle ?",
+      "texte": "On multiplie les longueurs des deux côtés de l'angle droit, puis on divise par 2.",
+      "exemple": "Avec deux côtés de 3 cm et 4 cm : A = (3 × 4) ÷ 2 = 6 cm².",
+      "mots_cles": [
+        ["triangle rectangle"],
+        ["deux côtés de l'angle droit"],
+        ["diviser par 2"]
+      ]
+    },
+    {
+      "id": "redaction-aire",
+      "type": "methode",
+      "titre": "6. Quelles sont les 4 étapes pour calculer une aire ?",
+      "texte": "1. Écrire la formule. 2. Remplacer par les segments. 3. Remplacer par les valeurs. 4. Calculer et écrire l'unité d'aire.",
+      "exemple": "A = (BC × AH) / 2 = (6 × 4) / 2 = 12 cm².",
+      "mots_cles": [
+        ["formule"],
+        ["noms des segments"],
+        ["valeurs numériques"],
+        ["calcul et unité"]
+      ]
+    },
+    {
+      "id": "mediatrice-mediane",
+      "type": "definition",
+      "titre": "7. Médiatrice et médiane : quelle différence ?",
+      "texte": "La médiatrice est perpendiculaire à un segment et passe par son milieu. La médiane passe par un sommet et le milieu du côté opposé.",
+      "exemple": "La médiatrice concerne un segment ; la médiane concerne un triangle.",
+      "mots_cles": [
+        ["médiatrice", "perpendiculaire", "milieu"],
+        ["médiane", "sommet", "milieu du côté opposé"]
+      ]
+    }
+  ],
+  "alertes": [
+    "Fiche limitée à 7 notions prioritaires.",
+    "La formule de l'aire du triangle doit être connue par cœur.",
+    "La hauteur doit toujours être perpendiculaire à la base choisie.",
+    "Ne pas oublier de diviser par 2.",
+    "Le résultat d'une aire s'exprime en unités carrées : cm², m², etc.",
+    "Pour la rédaction, respecter les 4 étapes demandées dans le cours.",
+    "Ne pas confondre hauteur, médiane et médiatrice."
+  ]
+}

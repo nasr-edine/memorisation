@@ -1,0 +1,43 @@
+{
+  "pour": "anfal",
+  "matiere": "geographie",
+  "titre": "Les transports et les réseaux",
+  "items": [
+    {
+      "id": "axe-transport",
+      "type": "definition",
+      "titre": "1. Axe de transport",
+      "texte": "Ligne reliant le point de départ d'un trajet à son point d'arrivée. Elle matérialise le trajet.",
+      "exemple": "L'axe Lille-Marseille.",
+      "mots_cles": [["axe de transport", "ligne reliant deux points"], ["exemple", "Lille-Marseille"]]
+    },
+    {
+      "id": "covoiturage",
+      "type": "definition",
+      "titre": "2. Covoiturage",
+      "texte": "Plusieurs personnes utilisent la même voiture pour faire un trajet et partager les frais de déplacement.",
+      "exemple": "Trois personnes partagent une voiture pour aller au travail.",
+      "mots_cles": [["covoiturage", "même voiture"], ["objectif", "partager les frais"]]
+    },
+    {
+      "id": "moyen-transport",
+      "type": "definition",
+      "titre": "3. Moyen de transport",
+      "texte": "Outil utilisé pour se déplacer d'un endroit à un autre.",
+      "exemple": "Train, voiture ou avion.",
+      "mots_cles": [["moyen de transport", "outil pour se déplacer"], ["exemples", "train, voiture, avion"]]
+    },
+    {
+      "id": "reseau",
+      "type": "definition",
+      "titre": "4. Réseau",
+      "texte": "Ensemble de points reliés par des lignes.",
+      "exemple": "Un réseau de transport relie différentes villes par des axes.",
+      "mots_cles": [["réseau", "points reliés par des lignes"]]
+    }
+  ],
+  "alertes": [
+    "Ne pas confondre un axe de transport (une ligne entre deux points) et un réseau (un ensemble de points reliés par des lignes).",
+    "Le covoiturage permet de partager les frais d'un trajet."
+  ]
+}

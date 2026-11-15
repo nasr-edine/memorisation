@@ -1,0 +1,86 @@
+{
+  "pour": "anfal",
+  "matiere": "francais",
+  "titre": "Le dialogue dans le récit et Le Comte de Monte-Cristo",
+  "items": [
+    {
+      "id": "dialogue-dans-recit",
+      "type": "definition",
+      "titre": "1. Le dialogue dans un récit",
+      "texte": "Un dialogue est une conversation écrite entre deux ou plusieurs personnages, insérée dans un récit.",
+      "exemple": "Dans un récit à la troisième personne, les personnages peuvent parler directement.",
+      "mots_cles": [["dialogue", "conversation écrite"], ["personnages", "deux ou plusieurs"]]
+    },
+    {
+      "id": "role-dialogue",
+      "type": "propriete",
+      "titre": "2. Le rôle du dialogue",
+      "texte": "Le dialogue fait entendre la voix des personnages, exprime leurs pensées et leurs émotions et fait avancer l'intrigue.",
+      "exemple": "Une dispute entre deux personnages peut faire évoluer l'histoire.",
+      "mots_cles": [["rôle", "voix, pensées, émotions"], ["intrigue", "faire avancer l'histoire"]]
+    },
+    {
+      "id": "ponctuation-dialogue",
+      "type": "regle",
+      "titre": "3. La ponctuation du dialogue",
+      "texte": "Les guillemets ouvrent et ferment le dialogue. Les tirets indiquent chaque changement de personnage. Chaque réplique commence par une majuscule et se termine par une ponctuation adaptée.",
+      "exemple": "« Où vas-tu ? » — « Je rentre chez moi. »",
+      "mots_cles": [["guillemets", "début et fin du dialogue"], ["tirets", "changement de personnage"], ["réplique", "majuscule et ponctuation finale"]]
+    },
+    {
+      "id": "mise-en-page-repliques",
+      "type": "methode",
+      "titre": "4. Présenter les répliques",
+      "texte": "À chaque changement de personnage, on revient à la ligne et on place un tiret au début de la nouvelle réplique.",
+      "exemple": "— Bonjour !\n— Comment vas-tu ?",
+      "mots_cles": [["nouveau personnage", "retour à la ligne"], ["début de réplique", "tiret"]]
+    },
+    {
+      "id": "incises-verbes-parole",
+      "type": "definition",
+      "titre": "5. Les incises et les verbes de parole",
+      "texte": "Une proposition incise précise qui parle et peut indiquer le ton ou l'émotion. On utilise des verbes de parole précis.",
+      "exemple": "demander, répondre, chuchoter, s'étonner, dire en colère.",
+      "mots_cles": [["incise", "qui parle et comment"], ["verbes", "demander, répondre, chuchoter, s'étonner"]]
+    },
+    {
+      "id": "alternance-recit-dialogue",
+      "type": "propriete",
+      "titre": "6. Récit et dialogue",
+      "texte": "Le dialogue rapporte les paroles directes. Le récit décrit les gestes, les regards, le décor, les silences et les pensées.",
+      "exemple": "Le personnage dit « Je n'ai pas peur », mais ses mains tremblent : le récit montre sa peur.",
+      "mots_cles": [["dialogue", "paroles directes"], ["récit", "gestes, décor, silences, pensées"]]
+    },
+    {
+      "id": "declencheur-monte-cristo",
+      "type": "reperes",
+      "titre": "7. Le déclencheur de l'intrigue",
+      "texte": "Edmond Dantès est victime d'une dénonciation calomnieuse : il est accusé à tort.",
+      "exemple": "Une fausse accusation déclenche son malheur.",
+      "mots_cles": [["Edmond Dantès", "fausse accusation"], ["dénonciation calomnieuse", "accusation mensongère"]]
+    },
+    {
+      "id": "danglars-fernand",
+      "type": "reperes",
+      "titre": "8. Les motivations des comploteurs",
+      "texte": "Danglars agit par jalousie professionnelle pour obtenir le poste de capitaine. Fernand agit par jalousie amoureuse car il aime Mercédès.",
+      "exemple": "Danglars envie la réussite professionnelle d'Edmond ; Fernand veut écarter son rival amoureux.",
+      "mots_cles": [["Danglars", "jalousie professionnelle"], ["Fernand", "jalousie amoureuse"], ["Mercédès", "aimée par Fernand"]]
+    },
+    {
+      "id": "lettre-anonyme",
+      "type": "reperes",
+      "titre": "9. La stratégie du complot",
+      "texte": "Danglars rédige de la main gauche une lettre anonyme au procureur du roi. Il accuse Edmond d'être un agent bonapartiste.",
+      "exemple": "La lettre anonyme sert à dénoncer Edmond.",
+      "mots_cles": [["Danglars", "écrit de la main gauche"], ["lettre", "anonyme"], ["destinataire", "procureur du roi"], ["accusation", "agent bonapartiste"]]
+    }
+  ],
+  "alertes": [
+    "Ne pas oublier les guillemets au début et à la fin du dialogue.",
+    "Chaque changement de personnage impose un retour à la ligne et un tiret.",
+    "Ne pas confondre le dialogue (paroles) et le récit (gestes, décor, pensées).",
+    "Danglars agit par jalousie professionnelle ; Fernand agit par jalousie amoureuse.",
+    "La lettre de dénonciation est anonyme et accuse Edmond d'être un agent bonapartiste."
+  ]
+}

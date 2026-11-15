@@ -1,0 +1,92 @@
+{
+  "pour": "aya",
+  "matiere": "anglais",
+  "titre": "Vocabulaire et verbes irréguliers",
+  "items": [
+    {
+      "id": "stay-stayed-stayed",
+      "type": "vocabulaire",
+      "titre": "1. Stay – Stayed – Stayed",
+      "texte": "Stay signifie rester. Stayed est le prétérit et le participe passé.",
+      "exemple": "To stay = rester.",
+      "mots_cles": [["stay", "rester"], ["stayed", "resté"]]
+    },
+    {
+      "id": "explore-explored-explored",
+      "type": "vocabulaire",
+      "titre": "2. Explore – Explored – Explored",
+      "texte": "Explore signifie explorer. Explored est le prétérit et le participe passé.",
+      "exemple": "To explore = explorer.",
+      "mots_cles": [["explore", "explorer"], ["explored", "exploré"]]
+    },
+    {
+      "id": "exclaim-exclaimed-exclaimed",
+      "type": "vocabulaire",
+      "titre": "3. Exclaim – Exclaimed – Exclaimed",
+      "texte": "Exclaim signifie s'exclamer. Exclaimed est le prétérit et le participe passé.",
+      "exemple": "To exclaim = s'exclamer.",
+      "mots_cles": [["exclaim", "s'exclamer"], ["exclaimed", "exclamé"]]
+    },
+    {
+      "id": "troop-trooped-trooped",
+      "type": "vocabulaire",
+      "titre": "4. Troop – Trooped – Trooped",
+      "texte": "Troop signifie se rassembler ou se déplacer en groupe. Trooped est le prétérit et le participe passé.",
+      "exemple": "To troop = se rassembler.",
+      "mots_cles": [["troop", "se rassembler"], ["trooped", "rassemblé"]]
+    },
+    {
+      "id": "repeat-repeated-repeated",
+      "type": "vocabulaire",
+      "titre": "5. Repeat – Repeated – Repeated",
+      "texte": "Repeat signifie répéter. Repeated est le prétérit et le participe passé.",
+      "exemple": "To repeat = répéter.",
+      "mots_cles": [["repeat", "répéter"], ["repeated", "répété"]]
+    },
+    {
+      "id": "go-went-gone",
+      "type": "vocabulaire",
+      "titre": "6. Go – Went – Gone",
+      "texte": "Go signifie aller. Went est le prétérit et gone est le participe passé.",
+      "exemple": "To go = aller.",
+      "mots_cles": [["go", "aller"], ["went", "allé (prétérit)"], ["gone", "allé (participe passé)"]]
+    },
+    {
+      "id": "feed-fed-fed",
+      "type": "vocabulaire",
+      "titre": "7. Feed – Fed – Fed",
+      "texte": "Feed signifie nourrir. Fed est le prétérit et le participe passé.",
+      "exemple": "To feed = nourrir.",
+      "mots_cles": [["feed", "nourrir"], ["fed", "nourri"]]
+    },
+    {
+      "id": "feel-felt-felt",
+      "type": "vocabulaire",
+      "titre": "8. Feel – Felt – Felt",
+      "texte": "Feel signifie sentir ou ressentir. Felt est le prétérit et le participe passé.",
+      "exemple": "To feel = sentir, ressentir.",
+      "mots_cles": [["feel", "sentir"], ["felt", "senti"]]
+    },
+    {
+      "id": "run-ran-run",
+      "type": "vocabulaire",
+      "titre": "9. Run – Ran – Run",
+      "texte": "Run signifie courir. Ran est le prétérit et run est le participe passé.",
+      "exemple": "To run = courir.",
+      "mots_cles": [["run", "courir"], ["ran", "couru (prétérit)"], ["run", "couru (participe passé)"]]
+    },
+    {
+      "id": "meet-met-met",
+      "type": "vocabulaire",
+      "titre": "10. Meet – Met – Met",
+      "texte": "Meet signifie rencontrer. Met est le prétérit et le participe passé.",
+      "exemple": "To meet = rencontrer.",
+      "mots_cles": [["meet", "rencontrer"], ["met", "rencontré"]]
+    }
+  ],
+  "alertes": [
+    "Les verbes réguliers prennent généralement -ed au prétérit et au participe passé.",
+    "À apprendre par cœur : go – went – gone ; feed – fed – fed ; feel – felt – felt ; run – ran – run ; meet – met – met.",
+    "Attention : stayed, explored, exclaimed, trooped et repeated sont des verbes réguliers."
+  ]
+}

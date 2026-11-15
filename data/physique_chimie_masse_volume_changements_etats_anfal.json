@@ -1,0 +1,101 @@
+{
+  "pour": "anfal",
+  "matiere": "physique_chimie",
+  "titre": "Masse, volume et changements d'état",
+  "items": [
+    {
+      "id": "grandeur-physique",
+      "type": "definition",
+      "titre": "1. Grandeur physique",
+      "texte": "Une grandeur physique est une caractéristique d'un objet ou d'un phénomène que l'on peut mesurer.",
+      "exemple": "La masse et le volume sont des grandeurs physiques.",
+      "mots_cles": [["grandeur physique", "caractéristique mesurable"]]
+    },
+    {
+      "id": "masse",
+      "type": "definition",
+      "titre": "2. Masse",
+      "texte": "La masse est liée à la quantité de matière contenue dans un objet. Elle se mesure avec une balance.",
+      "exemple": "Ses unités usuelles sont le gramme (g) et le kilogramme (kg).",
+      "mots_cles": [["masse", "quantité de matière"], ["appareil", "balance"], ["unités", "g et kg"]]
+    },
+    {
+      "id": "volume",
+      "type": "definition",
+      "titre": "3. Volume",
+      "texte": "Le volume correspond à la place qu'occupe la matière dans l'espace. Il se mesure avec une éprouvette graduée.",
+      "exemple": "Ses unités usuelles sont le litre (L) et le millilitre (mL).",
+      "mots_cles": [["volume", "place occupée"], ["appareil", "éprouvette graduée"], ["unités", "L et mL"]]
+    },
+    {
+      "id": "lecture-menisque",
+      "type": "methode",
+      "titre": "4. Lire un volume",
+      "texte": "Pour lire le volume d'un liquide, il faut placer son œil au niveau du bas du ménisque, la surface courbe du liquide.",
+      "exemple": "On regarde l'éprouvette à hauteur du bas de la surface courbe de l'eau.",
+      "mots_cles": [["lecture", "bas du ménisque"], ["position de l'œil", "à hauteur du liquide"]]
+    },
+    {
+      "id": "valeur-division",
+      "type": "methode",
+      "titre": "5. Valeur d'une division",
+      "texte": "On soustrait deux graduations chiffrées, puis on divise le résultat par le nombre d'intervalles entre elles.",
+      "exemple": "Entre 10 mL et 20 mL avec 5 intervalles : (20 - 10) ÷ 5 = 2 mL par division.",
+      "mots_cles": [["valeur d'une division", "différence ÷ nombre d'intervalles"]]
+    },
+    {
+      "id": "volume-solide",
+      "type": "formule",
+      "titre": "6. Volume d'un solide",
+      "texte": "On mesure le volume d'un solide par déplacement d'eau : volume de l'eau avec l'objet moins volume initial de l'eau.",
+      "exemple": "V objet = V eau + objet - V eau.",
+      "mots_cles": [["déplacement d'eau", "volume final - volume initial"]]
+    },
+    {
+      "id": "masse-volume-attention",
+      "type": "attention",
+      "titre": "7. Attention : masse et volume",
+      "texte": "Un même volume de substances différentes ne possède pas forcément la même masse.",
+      "exemple": "150 mL de farine, de riz et d'eau n'ont pas la même masse.",
+      "mots_cles": [["même volume", "masses différentes"], ["exemple", "farine, riz, eau"]]
+    },
+    {
+      "id": "trois-etats-matiere",
+      "type": "definition",
+      "titre": "8. Les trois états de la matière",
+      "texte": "La matière peut se présenter sous trois états : solide, liquide et gazeux.",
+      "exemple": "Un glaçon est solide, l'eau est liquide et la vapeur d'eau est gazeuse.",
+      "mots_cles": [["états", "solide, liquide, gaz"]]
+    },
+    {
+      "id": "fusion-solidification",
+      "type": "definition",
+      "titre": "9. Fusion et solidification",
+      "texte": "Fusion : passage de l'état solide à l'état liquide. Solidification : passage de l'état liquide à l'état solide.",
+      "exemple": "Un glaçon qui fond subit une fusion. De l'eau qui gèle subit une solidification.",
+      "mots_cles": [["fusion", "solide → liquide"], ["solidification", "liquide → solide"]]
+    },
+    {
+      "id": "vaporisation-liquefaction",
+      "type": "definition",
+      "titre": "10. Vaporisation et liquéfaction",
+      "texte": "Vaporisation : passage de l'état liquide à l'état gazeux. Liquéfaction : passage de l'état gazeux à l'état liquide.",
+      "exemple": "Un liquide qui forme de la vapeur se vaporise. La vapeur qui forme des gouttes se liquéfie.",
+      "mots_cles": [["vaporisation", "liquide → gaz"], ["liquéfaction", "gaz → liquide"]]
+    },
+    {
+      "id": "sublimation-condensation",
+      "type": "definition",
+      "titre": "11. Sublimation et condensation",
+      "texte": "Sublimation : passage direct de l'état solide à l'état gazeux. Condensation : passage direct de l'état gazeux à l'état solide.",
+      "exemple": "Ces deux changements d'état se font sans passer par l'état liquide.",
+      "mots_cles": [["sublimation", "solide → gaz"], ["condensation", "gaz → solide"], ["passage", "direct"]]
+    }
+  ],
+  "alertes": [
+    "Ne pas confondre la masse et le volume : la masse se mesure avec une balance, le volume avec une éprouvette graduée.",
+    "Pour lire le volume d'un liquide, regarder le bas du ménisque à hauteur des yeux.",
+    "Pour calculer le volume d'un solide par déplacement d'eau : volume final moins volume initial.",
+    "Apprendre les six changements d'état dans les deux sens : fusion, solidification, vaporisation, liquéfaction, sublimation et condensation."
+  ]
+}

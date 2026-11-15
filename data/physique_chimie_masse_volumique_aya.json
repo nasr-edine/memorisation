@@ -1,0 +1,110 @@
+{
+  "pour": "aya",
+  "matiere": "physique_chimie",
+  "titre": "Masse volumique et flottabilité",
+  "items": [
+    {
+      "id": "formule-masse-volumique",
+      "type": "formule",
+      "titre": "1. La masse volumique",
+      "texte": "La masse volumique (ρ) se calcule en divisant la masse (m) par le volume (V) : ρ = m / V.",
+      "exemple": "Si m = 20 g et V = 10 mL, alors ρ = 20 / 10 = 2 g/mL.",
+      "mots_cles": [["masse volumique", "ρ = m / V"], ["ρ", "masse volumique"], ["m", "masse"], ["V", "volume"]]
+    },
+    {
+      "id": "formules-masse-volume",
+      "type": "formule",
+      "titre": "2. Retrouver la masse ou le volume",
+      "texte": "Pour calculer la masse : m = ρ × V. Pour calculer le volume : V = m / ρ.",
+      "exemple": "Si ρ = 2 g/mL et V = 5 mL, alors m = 2 × 5 = 10 g.",
+      "mots_cles": [["masse", "m = ρ × V"], ["volume", "V = m / ρ"]]
+    },
+    {
+      "id": "unites-coherentes",
+      "type": "attention",
+      "titre": "3. Les unités doivent être cohérentes",
+      "texte": "Avant un calcul, il faut vérifier que les unités de masse et de volume correspondent à l'unité de masse volumique utilisée.",
+      "exemple": "Une masse en grammes et un volume en mL donnent une masse volumique en g/mL.",
+      "mots_cles": [["avant de calculer", "vérifier les unités"], ["g et mL", "g/mL"]]
+    },
+    {
+      "id": "conversions-masse-volume",
+      "type": "reperes",
+      "titre": "4. Les conversions essentielles",
+      "texte": "1 L = 1 000 mL. 1 kg = 1 000 g. 1 mL = 1 cm³. 1 g/mL = 1 kg/L = 1 g/cm³.",
+      "exemple": "2 L = 2 000 mL et 3 kg = 3 000 g.",
+      "mots_cles": [["litre", "1 L = 1 000 mL"], ["kilogramme", "1 kg = 1 000 g"], ["volume", "1 mL = 1 cm³"], ["masse volumique", "1 g/mL = 1 kg/L = 1 g/cm³"]]
+    },
+    {
+      "id": "masse-volumique-eau",
+      "type": "reperes",
+      "titre": "5. La masse volumique de l'eau",
+      "texte": "La masse volumique de l'eau est de 1 g/mL, soit 1 kg/L ou 1 000 kg/m³.",
+      "exemple": "1 mL d'eau a une masse de 1 g.",
+      "mots_cles": [["eau", "1 g/mL"], ["équivalences", "1 kg/L et 1 000 kg/m³"]]
+    },
+    {
+      "id": "flottaison",
+      "type": "propriete",
+      "titre": "6. Flotter ou couler",
+      "texte": "Un objet coule si sa masse volumique est supérieure à celle du liquide. Il flotte si elle est inférieure.",
+      "exemple": "Dans l'eau : un objet de masse volumique 2 g/mL coule ; un objet de 0,8 g/mL flotte.",
+      "mots_cles": [["coule", "ρ objet > ρ liquide"], ["flotte", "ρ objet < ρ liquide"]]
+    },
+    {
+      "id": "ballon-helium",
+      "type": "exemple",
+      "titre": "7. Pourquoi un ballon à l'hélium monte ?",
+      "texte": "L'hélium est moins dense que l'air : sa masse volumique est plus faible. Le ballon peut donc monter.",
+      "exemple": "Hélium : 0,17 g/L. Air : 1,3 g/L.",
+      "mots_cles": [["hélium", "0,17 g/L"], ["air", "1,3 g/L"], ["ballon", "l'hélium est moins dense que l'air"]]
+    },
+    {
+      "id": "identifier-materiau",
+      "type": "methode",
+      "titre": "8. Identifier un matériau",
+      "texte": "On calcule sa masse volumique, puis on la compare aux valeurs d'un tableau de référence.",
+      "exemple": "Aluminium : 2,7 g/mL. Fer : 7,8 g/mL. Cuivre : environ 8,7 g/mL. Or : 19,3 g/mL.",
+      "mots_cles": [["identifier", "calculer puis comparer"], ["aluminium", "2,7 g/mL"], ["fer", "7,8 g/mL"], ["cuivre", "environ 8,7 g/mL"], ["or", "19,3 g/mL"]]
+    },
+    {
+      "id": "test-aimant",
+      "type": "methode",
+      "titre": "9. Le test de l'aimant",
+      "texte": "Si deux métaux ont des masses volumiques proches, on peut utiliser un aimant pour les distinguer : le fer est attiré, le zinc ne l'est pas.",
+      "exemple": "Le fer et le zinc ont des masses volumiques proches, autour de 7,5 g/mL selon le cours.",
+      "mots_cles": [["fer", "attiré par un aimant"], ["zinc", "non attiré par un aimant"]]
+    },
+    {
+      "id": "temperature-masse-volumique",
+      "type": "propriete",
+      "titre": "10. Effet de la température",
+      "texte": "Quand la température augmente, la masse reste constante et le volume augmente. La masse volumique diminue.",
+      "exemple": "ρ = m / V : si m ne change pas et V augmente, ρ diminue.",
+      "mots_cles": [["température augmente", "volume augmente"], ["masse", "reste constante"], ["masse volumique", "diminue"]]
+    },
+    {
+      "id": "dilatation-ocean",
+      "type": "exemple",
+      "titre": "11. Réchauffement des océans",
+      "texte": "Le réchauffement de l'eau des océans provoque sa dilatation thermique et contribue à la montée du niveau de la mer.",
+      "exemple": "La fonte des glaciers continentaux contribue également à cette montée.",
+      "mots_cles": [["océans", "dilatation thermique"], ["niveau de la mer", "augmente"], ["autre cause", "fonte des glaciers continentaux"]]
+    },
+    {
+      "id": "masse-et-poids",
+      "type": "attention",
+      "titre": "12. Ne pas confondre masse et poids",
+      "texte": "La masse (m) se mesure en grammes ou kilogrammes avec une balance. Le poids (P) est une force mesurée en newtons (N) : P = m × g.",
+      "exemple": "La masse indique la quantité de matière ; le poids correspond à la force de gravité exercée sur l'objet.",
+      "mots_cles": [["masse", "kg ou g, balance"], ["poids", "newton (N), P = m × g"]]
+    }
+  ],
+  "alertes": [
+    "À connaître par cœur : ρ = m / V ; m = ρ × V ; V = m / ρ.",
+    "Toujours vérifier les unités avant de faire un calcul.",
+    "Dans l'eau, un objet coule si sa masse volumique est supérieure à 1 g/mL et flotte si elle est inférieure à 1 g/mL.",
+    "Ne pas confondre masse (kg ou g) et poids (N).",
+    "Quand la température augmente, la masse reste constante, le volume augmente et la masse volumique diminue."
+  ]
+}
